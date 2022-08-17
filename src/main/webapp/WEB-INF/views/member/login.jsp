@@ -19,8 +19,7 @@
 	        비밀번호를 입력 하세요<br>
 	        <input type="password" value="123" name="passWord"><br> <input type="submit" value="로그인"><br>
 	    </div>
-	    <!-- 절대경로 -->
-	    <a href="/">Home</a>
+	    <button type="button" onclick="location.href='/home'">Home</button>
     </form>
 	
 </body>
