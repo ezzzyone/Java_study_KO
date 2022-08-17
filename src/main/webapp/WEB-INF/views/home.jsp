@@ -6,9 +6,9 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Main Page  
 </h1>
-
+	<button type="button" onclick="location.href='./login.iu'">로그인</button>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
