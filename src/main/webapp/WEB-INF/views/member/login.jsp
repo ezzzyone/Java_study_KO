@@ -9,17 +9,19 @@
 <body>
 	<h1>Login Page</h1>
 	
-    <h2>로그인</h2>
     
     <form action="./login.iu" method="post"><!-- /member/login -->
 	    <div>
 	        아이디를 입력하세요<br>
-	        <input type="text" value="GD" name="userName"><input type="hidden"><br>
+	        <input type="text" value="GD" name="userName"><input type="hidden">
+	        <br>
 	        <br>
 	        비밀번호를 입력 하세요<br>
-	        <input type="password" value="123" name="passWord"><br> <input type="submit" value="로그인"><br>
-	    </div>
+	        <input type="password" value="123" name="passWord">
+	        <br>
+	        <input type="submit" value="로그인">
 	    <button type="button" onclick="location.href='/home'">Home</button>
+	    </div>
     </form>
 	
 </body>
