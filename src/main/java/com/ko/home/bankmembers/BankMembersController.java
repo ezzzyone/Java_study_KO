@@ -1,5 +1,7 @@
 package com.ko.home.bankmembers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "/member/*")
@@ -15,9 +18,11 @@ public class BankMembersController {
 	@Autowired
 	private BankMembersService bankMembersService;
 	
+	//로그인
 	@RequestMapping(value = "login.ko", method = RequestMethod.GET)
 	public String login()throws Exception{
 		System.out.println("로그인 접속 (GET)");
+		
 		return "member/login";
 	}
 	
@@ -34,6 +39,16 @@ public class BankMembersController {
 		return "redirect:../";
 	}
 	
+	//로그아웃
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(HttpSession session)throws Exception{
+		
+		session.invalidate();
+		
+		return "redirect:../";
+	}
+	
+	//회원가입
 	@RequestMapping(value = "join.ko", method = RequestMethod.GET)
 	public String join()throws Exception {
 		System.out.println("회원가입 접속 (GET)");
@@ -54,6 +69,27 @@ public class BankMembersController {
 		
 		return "redirect:../";
 		
+	}
+	
+	@RequestMapping(value = "search.ko", method = RequestMethod.GET)
+	public void search()throws Exception{
+		System.out.println("아이디 검색중 (GET)");
+		
+		//return "member/search";
+	}
+	
+	@RequestMapping(value = "search.ko", method = RequestMethod.POST)
+	public ModelAndView search(String search)throws Exception{
+		System.out.println("아이디 검색중 (POST)");
+		ModelAndView mv = new ModelAndView();
+		
+		List<BankMembersDTO> ar = bankMembersService.getSearchByID(search);
+		
+		//경로와 데이터를 함께 보낼때
+		mv.setViewName("member/list");
+		mv.addObject("list", ar);
+		
+		return mv;
 	}
 	
 }
