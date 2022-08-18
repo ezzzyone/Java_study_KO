@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,11 +18,14 @@ public class BankBookDAOTest extends MyAbstractTest{
 	
 	@Autowired
 	private BankBookDAO bankBookDAO;
-	
+
 
 	@Test
-	public void setBankBookTest(BankBookDTO bankBookDTO) throws Exception{
-
+	public void setBankBookTest() throws Exception{
+		BankBookDTO bankBookDTO = new BankBookDTO();
+		bankBookDTO.setBookName("sgfsg");
+		bankBookDTO.setBookNum(454646L);
+		bankBookDTO.setBookRate(3.3);
 		int result = bankBookDAO.setBankBook(bankBookDTO);
 		assertEquals(1, result);
 	}
