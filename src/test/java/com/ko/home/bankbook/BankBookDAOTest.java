@@ -20,9 +20,9 @@ public class BankBookDAOTest extends MyAbstractTest{
 	
 
 	@Test
-	public void setBankBookTest() throws Exception{
+	public void setBankBookTest(BankBookDTO bankBookDTO) throws Exception{
 
-		int result = bankBookDAO.setBankBook();
+		int result = bankBookDAO.setBankBook(bankBookDTO);
 		assertEquals(1, result);
 	}
 
