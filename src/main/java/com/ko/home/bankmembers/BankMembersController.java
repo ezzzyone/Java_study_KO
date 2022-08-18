@@ -34,4 +34,9 @@ public class BankMembersController {
 		return "redirect:../";
 	}
 	
+	@RequestMapping(value = "join.ko", method = RequestMethod.GET)
+	public void join()throws Exception {
+		System.out.println("회원가입 접속 (GET)");
+	}
+	
 }
