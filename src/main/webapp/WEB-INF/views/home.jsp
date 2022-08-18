@@ -23,6 +23,6 @@
 		<button type="button" onclick="location.href='./member/join.ko'">회원가입</button>
 	</c:if>
 	
-	<button type="button" onclick="location.href='./member/join.ko'">통장리스트</button>
+	<button type="button" onclick="location.href='./bankbook/list.iu'">통장리스트</button>
 </body>
 </html>
