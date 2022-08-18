@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form action="./join.ko" method="POST">
 	<h1>Join Page</h1>
 	<br>
    		<div>
