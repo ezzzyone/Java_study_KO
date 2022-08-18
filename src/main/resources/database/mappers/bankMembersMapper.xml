@@ -8,8 +8,5 @@
 	<select id="getLogin" parameterType="com.ko.home.bankmembers.BankMembersDTO" resultType="com.ko.home.bankmembers.BankMembersDTO">
 		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{passWord}
 	</select>
-	<insert id="">
-		
-	</insert>
 	
 </mapper>

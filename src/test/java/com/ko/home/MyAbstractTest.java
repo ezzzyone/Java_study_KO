@@ -12,14 +12,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 //**는 그 하위폴더 안에까지 읽어라 라는 뜻!
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/*-context.xml"})
-public class DBTest {
+//abstract : 상속받아서 사용해야 사용가능
+public abstract class MyAbstractTest {
 
-	@Autowired
-	private SqlSession sqlSession;
 	
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 
 }

@@ -1,5 +1,6 @@
 package com.ko.home.bankmembers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -21,12 +22,13 @@ public class BankMembersDAO {
 	
 	//회원가입
 	public int setJoin(BankMembersDTO bankMembersDTO)throws Exception{
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setJoin", bankMembersDTO);
 	}
 	
 	//아이디검색
 	public List<BankMembersDTO> getSearchByID(String search)throws Exception{
-		return null;
+		ArrayList<BankMembersDTO> ar = new ArrayList<BankMembersDTO>();
+		return ar;
 	}
 	
 }
