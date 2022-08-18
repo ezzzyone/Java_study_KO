@@ -2,9 +2,10 @@
 		<!DOCTYPE mapper
 		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		    
 <mapper namespace="com.ko.home.bankmembers.BankMembersDAO">
 
-	<select id="getLogin" resultType="com.ko.home.bankmembers.BankMembersDTO">
+	<select id="getLogin" parameterType="com.ko.home.bankmembers.BankMembersDTO" resultType="com.ko.home.bankmembers.BankMembersDTO">
 		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{passWord}
 	</select>
 	
