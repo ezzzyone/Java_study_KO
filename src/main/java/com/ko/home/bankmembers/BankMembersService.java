@@ -18,7 +18,7 @@ public class BankMembersService {
 	
 	//회원가입
 	public int setJoin(BankMembersDTO bankMembersDTO)throws Exception{
-		return 0;
+		return bankMembersDAO.setJoin(bankMembersDTO);
 	}
 	
 	//아이디검색

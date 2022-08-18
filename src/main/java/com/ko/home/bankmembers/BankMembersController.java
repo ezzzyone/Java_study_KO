@@ -35,8 +35,25 @@ public class BankMembersController {
 	}
 	
 	@RequestMapping(value = "join.ko", method = RequestMethod.GET)
-	public void join()throws Exception {
+	public String join()throws Exception {
 		System.out.println("회원가입 접속 (GET)");
+		
+		return "member/join";
+	}
+	
+	@RequestMapping(value = "join.ko", method = RequestMethod.POST)
+	public String join(BankMembersDTO bankMembersDTO)throws Exception {
+		System.out.println("회원가입 접속 (POST)");
+		
+		int result = bankMembersService.setJoin(bankMembersDTO);
+		if(result>0) {
+			System.out.println("회원가입 성공!");
+		}else {
+			System.out.println("회원가입 실패..");
+		}
+		
+		return "redirect:../";
+		
 	}
 	
 }

@@ -9,4 +9,7 @@
 		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{passWord}
 	</select>
 	
+	<insert id="setJoin" parameterType="com.ko.home.bankmembers.BankMembersDTO">
+		INSERT INTO BANKMEMBERS VALUES (#{userName}, #{passWord}, #{name}, #{email}, #{phone})
+	</insert>
 </mapper>
