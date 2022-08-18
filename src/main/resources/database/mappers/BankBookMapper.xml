@@ -11,8 +11,15 @@ UPDATE BANKBOOK SET BOOKNAME=#{bookName}, BOOKRATE=#{bookRate} where BOOKNUM=#{b
 </update>
 
 <insert id="setBankBook" parameterType="com.ko.home.BankBook.BankBookDTO">
-insert into BANKBOOK(BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) values (#{bookNum},#{bookname},#{booRate},#{bookSale})
+insert into BANKBOOK(BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) values (#{bookNum},#{bookName},#{booRate},#{bookSale})
 </insert>
+
+<select id="getList" parameterType="com.ko.home.BankBook.BankBookDTO" resultType="com.ko.home.BankBook.BankBookDTO" >
+select * from BANKBOOK ORDER BY BOOKNUM DESC
+</select>
+
+
+
 
 
 		
