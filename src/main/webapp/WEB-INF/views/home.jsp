@@ -10,7 +10,14 @@
 <h1>
 	Main Page  
 </h1>
-<P>  The time on the server is ${serverTime}. </P>
+<ol>
+	<li>first</li>
+	<li>seconds</li>
+</ol>
+<div><ul><a href="./bankbook/list.iu">상품리스트</a></ul>
+	
+	<ul><a href="./member/login.ko">멤버로그인</a></ul>
+</div>
 
 	<c:if test="${empty sessionScope.member}">
 		<h2>어서오세요~</h2>	
