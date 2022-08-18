@@ -24,8 +24,8 @@
 	        <input type="password" value="123" name="passWord">
 	        <br>
 	        <input type="submit" value="로그인">
-	    <button type="button" onclick="location.href='/home'">Home</button>
 	    </div>
+	    <button type="button" onclick="location.href='/'">Home</button>
     </form>
 	
 </body>

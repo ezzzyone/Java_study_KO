@@ -12,4 +12,8 @@
 	<insert id="setJoin" parameterType="com.ko.home.bankmembers.BankMembersDTO">
 		INSERT INTO BANKMEMBERS VALUES (#{userName}, #{passWord}, #{name}, #{email}, #{phone})
 	</insert>
+	
+	<select id="getSearchByID" parameterType="java.lang.String" resultType="com.ko.home.bankmembers.BankMembersDTO">
+		SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{search}||'%' ORDER BY USERNAME ASC
+	</select>
 </mapper>

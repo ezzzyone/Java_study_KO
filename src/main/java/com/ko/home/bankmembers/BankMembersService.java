@@ -23,7 +23,7 @@ public class BankMembersService {
 	
 	//아이디검색
 	public List<BankMembersDTO> getSearchByID(String search)throws Exception{
-		return null;
+		return bankMembersDAO.getSearchByID(search);
 	}
 	
 }
