@@ -19,14 +19,14 @@ public class BankMembersController {
 	private BankMembersService bankMembersService;
 	
 	//로그인
-	@RequestMapping(value = "login.ko", method = RequestMethod.GET)
+	@RequestMapping(value = "login.iu", method = RequestMethod.GET)
 	public String login()throws Exception{
 		System.out.println("로그인 접속 (GET)");
 		
 		return "member/login";
 	}
 	
-	@RequestMapping(value = "login.ko", method = RequestMethod.POST)
+	@RequestMapping(value = "login.iu", method = RequestMethod.POST)
 	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO)throws Exception{
 		System.out.println("DB로그인 접속 (POST)");
 		//DB에서 아이디와 패스워드가 일치하는 DTO데이터 가져옴
@@ -40,7 +40,7 @@ public class BankMembersController {
 	}
 	
 	//로그아웃
-	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	@RequestMapping(value = "logout.iu", method = RequestMethod.GET)
 	public String logout(HttpSession session)throws Exception{
 		
 		session.invalidate();
@@ -49,14 +49,14 @@ public class BankMembersController {
 	}
 	
 	//회원가입
-	@RequestMapping(value = "join.ko", method = RequestMethod.GET)
+	@RequestMapping(value = "join.iu", method = RequestMethod.GET)
 	public String join()throws Exception {
 		System.out.println("회원가입 접속 (GET)");
 		
 		return "member/join";
 	}
 	
-	@RequestMapping(value = "join.ko", method = RequestMethod.POST)
+	@RequestMapping(value = "join.iu", method = RequestMethod.POST)
 	public String join(BankMembersDTO bankMembersDTO)throws Exception {
 		System.out.println("회원가입 접속 (POST)");
 		
@@ -71,14 +71,19 @@ public class BankMembersController {
 		
 	}
 	
-	@RequestMapping(value = "search.ko", method = RequestMethod.GET)
+	@RequestMapping(value = "list.iu")
+	public void list()throws Exception{
+		
+	}
+	
+	@RequestMapping(value = "search.iu", method = RequestMethod.GET)
 	public void search()throws Exception{
 		System.out.println("아이디 검색중 (GET)");
 		
 		//return "member/search";
 	}
 	
-	@RequestMapping(value = "search.ko", method = RequestMethod.POST)
+	@RequestMapping(value = "search.iu", method = RequestMethod.POST)
 	public ModelAndView search(String search)throws Exception{
 		System.out.println("아이디 검색중 (POST)");
 		ModelAndView mv = new ModelAndView();

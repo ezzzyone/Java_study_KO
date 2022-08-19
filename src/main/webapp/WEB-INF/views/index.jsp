@@ -50,17 +50,6 @@
             </button>
           </div>
     </section>
-
-    <!-- <div class="container-fluid">
-        <div class="row">
-                <div class="col-sm-12 col-lg-6 bg-success">
-                    div1
-                </div>
-                <div class="col-sm-12 col-lg-6 bg-danger">
-                    div2
-                </div>
-        </div>
-    </div> -->
     
 	<!-- footer import -->
 	<c:import url="./template/footer.jsp"></c:import>
