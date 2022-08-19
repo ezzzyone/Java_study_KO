@@ -1,36 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>bank!</title>
+    <nav class="navbar navbar-dark bg-dark">
+        <!-- Navbar content -->
+    </nav>
+  </head>
 <body>
-	<form action="./join.ko" method="POST">
+
+	<c:import url="../template/header.jsp"></c:import>
+	
 	<h1>Join Page</h1>
-	<br>
-   		<div>
-        	아이디를 입력하세요<br>
-        	<input type="text" name="userName"><input type="button" value="중복확인"><br>
-       		비밀번호를 입력 하세요<br>
-        	<input type="password"><br> 
-        	비밀번호를 다시 입력하세요<br>
-        	<input type="password" name="passWord"><input type="button" value="비밀번호 확인"><br>
-    	</div>
-    	<br>
-    	<div>
-	       이름을 입력하세요<br>
-	       <input type="text" name="name"><br>
-	       이메일을 입력하세요<br>
-	       <input type="email" name="email"><br>
-	       전화번호를 입력하세요<br>
-	       <input type="text" name="phone"><br>
-	       <br>
-	       <hr>
-	       <br>
-	       <input type="submit" value="회원가입완료"><input type="button" value="회원가입취소">
-	   </div>
+	
+	<form action="./join.ko" method="POST">
+		
 	</form>
+	
+	<c:import url="../template/footer.jsp"></c:import>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
