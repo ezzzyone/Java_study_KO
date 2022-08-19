@@ -8,9 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<c:import url="../template/header.jsp"></c:import>
+
 	<h1>Member List Page</h1>
-	
-	<table border="1">
+
+	<table class="table table-striped" border="1">
 		<thead>
 			<tr>
 				<th>UserName</th><th>Name</th><th>Email</th><th>Phone</th>
@@ -19,13 +22,18 @@
 		<tbody>
 			<c:forEach items="${requestScope.list}" var="dto">			
 				<tr>
-					<td>${dto.userName}</td>
-					<td>${dto.name}</td>
-					<td>${dto.email}</td>
-					<td>${dto.phone}</td>
+	
+				 <td>${dto.userName}</td>
+  				<td>${dto.name}</td>
+  				<td>${dto.email}</td>
+ 				 <td>${dto.phone}</td>
+ 			
+				
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+		 
 </body>
+<c:import url="../template/footer.jsp"></c:import>
 </html>

@@ -11,6 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<c:import url="../template/header.jsp"></c:import>
+<section class="container-fluid col-lg-2">
 	<h1>통장 리스트</h1>
 	<!-- /book/list -->
 	
@@ -19,7 +22,7 @@
 	<!-- 이 페이지의 URL주소를 보고 경로를 결정 -->
 	<!-- <a href="./detail">Detail</a> 이렇게 써도 됀다 -->
 	
-	<table border="1">
+	<table border="1" class="table table-striped">
 		<thead>
 			<tr>
 				<th>통장번호</th>
@@ -34,10 +37,12 @@
 				</c:forEach>
 		</tbody>
 	</table>
-	
+	</section>
 	<c:if test="${not empty sessionScope.member}">
 		<a href="./add.iu">통장등록</a>
 	</c:if>
 	
 </body>
+
+<c:import url="../template/footer.jsp"></c:import>
 </html>
