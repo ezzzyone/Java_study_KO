@@ -80,12 +80,12 @@ public class BankMembersController {
 	}
 	
 	@RequestMapping(value = "search.iu", method = RequestMethod.POST)
-	public ModelAndView search(BankMembersDTO bankMembersDTO)throws Exception{
+	public ModelAndView search(String userName)throws Exception{
 		System.out.println("아이디 검색중 (POST)");
-		System.out.println(">>>>>>컨트롤러bankMembersDTO"+bankMembersDTO.toString());
+		System.out.println(">>>>>>컨트롤러bankMembersDTO"+userName.toString());
 		ModelAndView mv = new ModelAndView();
 		
-		List<BankMembersDTO> ar = bankMembersService.getSearchByID(bankMembersDTO);
+		List<BankMembersDTO> ar = bankMembersService.getSearchByID(userName);
 		
 		//경로와 데이터를 함께 보낼때
 		mv.setViewName("member/list");
