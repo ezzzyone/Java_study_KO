@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%-- <%@ page session="false" %> 이거지우기!!!!!!!! --%>
-<html>
 <head>
 	<title>Home</title>
 </head>

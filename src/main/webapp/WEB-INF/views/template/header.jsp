@@ -13,9 +13,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
-                
-               
+               <%-- if else 처럼쓰임 --%>
                 <c:choose>
+                	<%-- if --%>
                 	<c:when test="${empty sessionScope.member}">
 		                <li class="nav-item">
 		                    <a class="nav-link active" href="/member/login.ko">로그인</a>
@@ -24,7 +24,7 @@
 		                    <a class="nav-link" href="/member/join.ko">회원가입</a>
 		                </li>
                 	</c:when>
-	                
+	                <%-- else --%>
 	                <c:otherwise>
 		                <li class="nav-item">
 		                    <a class="nav-link" href="/member/logout.ko">로그아웃</a>

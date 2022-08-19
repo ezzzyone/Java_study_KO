@@ -21,7 +21,7 @@
 	<c:import url="../template/header.jsp"></c:import>
 	
 	<!-- 입력창 만들기 전 부트스트랩 쓸때 이걸 써야한다 -->
-	<section class="container-fluid">
+	<section class="container-fluid col-lg-5">
 		<div class="row">
 			
 			<h1>로그인</h1>
