@@ -82,7 +82,6 @@ public class BankMembersController {
 	@RequestMapping(value = "search.iu", method = RequestMethod.POST)
 	public ModelAndView search(String userName)throws Exception{
 		System.out.println("아이디 검색중 (POST)");
-		System.out.println(">>>>>>컨트롤러bankMembersDTO"+userName.toString());
 		ModelAndView mv = new ModelAndView();
 		
 		List<BankMembersDTO> ar = bankMembersService.getSearchByID(userName);

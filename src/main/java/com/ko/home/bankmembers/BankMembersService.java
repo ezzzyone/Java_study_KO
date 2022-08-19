@@ -23,7 +23,6 @@ public class BankMembersService {
 	
 	//아이디검색
 	public List<BankMembersDTO> getSearchByID(String userName)throws Exception{
-		System.out.println(">>>>>>서비스bankMembersDTO"+userName.toString());
 		return bankMembersDAO.getSearchByID(userName);
 	}
 	

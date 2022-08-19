@@ -27,7 +27,6 @@ public class BankMembersDAO {
 	
 	//아이디검색
 	public List<BankMembersDTO> getSearchByID(String userName)throws Exception{
-		System.out.println(">>>>>>DAObankMembersDTO"+userName);
 		return sqlSession.selectList(NAMESPACE+"getSearchByID", userName);
 	}
 	
