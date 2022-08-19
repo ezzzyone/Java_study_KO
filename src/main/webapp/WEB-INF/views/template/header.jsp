@@ -43,10 +43,13 @@
                 </c:choose>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/board/list.iu">공지사항</a>
+                    <a class="nav-link" href="/member/search.iu">회원정보검색</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/bankbook/list.iu">상품리스트</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/board/list.iu">공지사항</a>
                 </li>
 
                 </ul>
