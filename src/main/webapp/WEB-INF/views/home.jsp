@@ -20,8 +20,10 @@
 	<c:if test="${not empty sessionScope.member}">
 		<h2>${sessionScope.member.userName}님 환영합니다!</h2>
 		<button type="button" onclick="location.href='./member/logout.ko'">로그아웃</button>
+		<button type="button" onclick="location.href='./member/mypage.ko'">마이페이지</button>
 	</c:if>
 	
+	<button type="button" onclick="location.href='./member/list.iu'">아이디검색</button>
 	<button type="button" onclick="location.href='./bankbook/list.iu'">통장리스트</button>
 </body>
 </html>
