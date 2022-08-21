@@ -1,32 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+<html lang="en">
+  <head>
+  </head>
 <body>
-	<h1>Login Page</h1>
+
+	<c:import url="../template/header.jsp"></c:import>
 	
+	<section class="container-fluid col-lg-5">
+		<div class="row">
+			
+			<h1>로그인</h1>
+		    
+		    <form action="./login.iu" method="post"><!-- /member/login -->
+				  <div class="mb-3">
+				  	<label for="exampleInputEmail1" class="form-label">아이디 입력하세요</label>
+				  	<input type="text" name="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+				  	<%-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --%>
+				  </div>
+				  <div class="mb-3">
+				    <label for="exampleInputPassword1" class="form-label">비밀번호를 입력하세요</label>
+				    <input type="text" name="passWord" class="form-control" id="exampleInputPassword1">
+				  </div>
+				  <div class="mb-3 form-check">
+				    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+				    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+				  </div>
+				  <button type="submit" class="btn btn-primary">로그인</button>
+		    </form>
+		</div>
+	</section>
     
-    <form action="./login.ko" method="post"><!-- /member/login -->
-	    <div>
-	        아이디를 입력하세요<br>
-	        <!-- 계속 로그인 치기 귀찮으니 DB에있는 데이터 userName를 -->
-	        <!-- value속성에 넣음 -->
-	        <input type="text" value="GD" name="userName"><input type="hidden">
-	        <br>
-	        <br>
-	        <!-- 계속 로그인 치기 귀찮으니 DB에있는 데이터 password를 -->
-	        <!-- value속성에 넣음 -->
-	        비밀번호를 입력 하세요<br>
-	        <input type="password" value="123" name="passWord">
-	        <br>
-	        <input type="submit" value="로그인">
-	    </div>
-	    <button type="button" onclick="location.href='/'">Home</button>
-    </form>
+	<c:import url="../template/footer.jsp"></c:import>
 	
 </body>
 </html>

@@ -4,12 +4,9 @@
 				  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
  <configuration>
-
- <typeAliases>
- <typeAlias type="com.ko.home.BankBook.BankBookDTO" alias="BankBookDTO"/>
-
+	<typeAliases>
  		<typeAlias type="com.ko.home.bankmembers.BankMembersDTO" alias="BankMembersDTO"/>
  		<typeAlias type="java.lang.String" alias="String"/>
- 	</typeAliases>
-
+	 	<typeAlias type="com.ko.home.BankBook.BankBookDTO" alias="BankBookDTO"/>
+	</typeAliases>
  </configuration>
