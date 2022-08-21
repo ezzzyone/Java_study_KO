@@ -18,35 +18,38 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">홈</a>
                 </li>
                <%-- if else 처럼쓰임 --%>
                 <c:choose>
                 	<%-- if --%>
                 	<c:when test="${empty sessionScope.member}">
 		                <li class="nav-item">
-		                    <a class="nav-link active" href="/member/login.ko">로그인</a>
+		                    <a class="nav-link active" href="/member/login.iu">로그인</a>
 		                </li>
 		                <li class="nav-item">
-		                    <a class="nav-link" href="/member/join.ko">회원가입</a>
+		                    <a class="nav-link" href="/member/join.iu">회원가입</a>
 		                </li>
                 	</c:when>
 	                <%-- else --%>
 	                <c:otherwise>
 		                <li class="nav-item">
-		                    <a class="nav-link" href="/member/logout.ko">로그아웃</a>
+		                    <a class="nav-link" href="/member/logout.iu">로그아웃</a>
 		                </li>
 		                <li class="nav-item">
-		                    <a class="nav-link active" href="/member/mypage.ko">마이페이지</a>
+		                    <a class="nav-link active" href="/member/mypage.iu">마이페이지</a>
 		                </li>
 	                </c:otherwise>
                 </c:choose>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/board/list.iu">공지사항</a>
+                    <a class="nav-link" href="/member/search.iu">회원정보검색</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/bankbook/list.iu">상품리스트</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/board/list.iu">공지사항</a>
                 </li>
 
                 </ul>

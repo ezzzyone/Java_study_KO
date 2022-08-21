@@ -19,21 +19,21 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="2000">
-                <img src="/resources/images/title.jpg" class="d-block w-100" alt="...">
+                <img src="/resources/images/title_1.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>First slide label</h5>
                   <p>Some representative placeholder content for the first slide.</p>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <img src="/resources/images/title2.jpg" class="d-block w-100" alt="...">
+                <img src="/resources/images/title2_2.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <img src="/resources/images/title3.jpg" class="d-block w-100" alt="...">
+                <img src="/resources/images/title_3.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Third slide label</h5>
                   <p>Some representative placeholder content for the third slide.</p>
@@ -50,17 +50,6 @@
             </button>
           </div>
     </section>
-
-    <!-- <div class="container-fluid">
-        <div class="row">
-                <div class="col-sm-12 col-lg-6 bg-success">
-                    div1
-                </div>
-                <div class="col-sm-12 col-lg-6 bg-danger">
-                    div2
-                </div>
-        </div>
-    </div> -->
     
 	<!-- footer import -->
 	<c:import url="./template/footer.jsp"></c:import>

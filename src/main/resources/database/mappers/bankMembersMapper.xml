@@ -14,6 +14,6 @@
 	</insert>
 	
 	<select id="getSearchByID" parameterType="String" resultType="BankMembersDTO">
-		SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{search}||'%' ORDER BY USERNAME ASC
+		SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{userName}||'%' ORDER BY USERNAME ASC
 	</select>
 </mapper>

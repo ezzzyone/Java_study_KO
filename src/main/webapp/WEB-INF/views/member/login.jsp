@@ -14,7 +14,7 @@
 			
 			<h1>로그인</h1>
 		    
-		    <form action="./login.ko" method="post"><!-- /member/login -->
+		    <form action="./login.iu" method="post"><!-- /member/login -->
 				  <div class="mb-3">
 				  	<label for="exampleInputEmail1" class="form-label">아이디 입력하세요</label>
 				  	<input type="text" name="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
