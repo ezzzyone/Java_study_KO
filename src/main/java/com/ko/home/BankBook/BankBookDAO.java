@@ -80,7 +80,7 @@ public class BankBookDAO implements BookDAO{
 //		
 //		DBConnector.disConnect(rs, st, con);
 		
-		return sqlSession.selectList(NAMESPACE+"getList", NAMESPACE);
+		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 
 	@Override

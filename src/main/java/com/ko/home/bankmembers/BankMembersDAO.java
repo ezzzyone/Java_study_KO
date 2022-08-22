@@ -30,4 +30,8 @@ public class BankMembersDAO {
 		return sqlSession.selectList(NAMESPACE+"getSearchByID", userName);
 	}
 	
+	
+	public BankMembersDTO getMyPage(BankMembersDTO bankMembersDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getMyPage", bankMembersDTO);
+	}
 }

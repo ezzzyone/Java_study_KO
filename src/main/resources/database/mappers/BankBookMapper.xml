@@ -15,7 +15,7 @@ UPDATE BANKBOOK SET BOOKNAME=#{bookName}, BOOKRATE=#{bookRate} where BOOKNUM=#{b
 insert into BANKBOOK(BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) values (#{bookNum},#{bookName},#{bookRate},1)
 </insert>
 
-<select id="getList" parameterType="BankBookDTO" resultType="BankBookDTO" >
+<select id="getList" resultType="BankBookDTO" >
 select * from BANKBOOK ORDER BY BOOKNUM DESC
 </select>
 

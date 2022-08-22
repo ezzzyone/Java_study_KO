@@ -12,41 +12,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   </head>
 <body>
-	<c:import url="../template/header.jsp"></c:import>
+
+<c:import url="../template/header.jsp"></c:import>
+
+	<h1>Member List Page</h1>
+
+	<table class="table table-striped" border="1">
+		<thead>
+			<tr>
+				<th>UserName</th><th>Name</th><th>Email</th><th>Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${requestScope.list}" var="dto">			
+				<tr>
 	
-	<section class="container text-center con-lg-7">
-		<h1>Member List Page</h1>
-			<div class="row align-items-center">
-				<div class="col">
-					회원아이디
-				</div>
-				<div class="col">
-					이름
-				</div>
-				<div class="col">
-					이메일
-				</div>
-				<div class="col">
-					전화번호
-				</div>
-			</div>
-			<div class="row align-items-center">
-				<c:forEach items="${requestScope.list}" var="dto">
-					<div class="col">
-						${dto.userName}
-					</div>
-					<div class="col">
-						${dto.name}
-					</div>
-					<div class="col">
-						${dto.email}
-					</div>
-					<div class="col">
-						${dto.phone}
-					</div>
-				</c:forEach>
-			</div>
-	</section>
-	<c:import url="../template/footer.jsp"></c:import>
+				 <td>${dto.userName}</td>
+  				<td>${dto.name}</td>
+  				<td>${dto.email}</td>
+ 				 <td>${dto.phone}</td>
+ 			
+				
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+		 
 </body>
+<c:import url="../template/footer.jsp"></c:import>
 </html>

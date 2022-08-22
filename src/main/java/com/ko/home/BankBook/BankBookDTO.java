@@ -1,11 +1,16 @@
 package com.ko.home.BankBook;
 
+import java.util.List;
+
+import com.ko.home.BankAccount.BankAccountDTO;
+
 public class BankBookDTO {
 	//변수선언
 	private Long bookNum;
 	private String bookName;
 	private Double bookRate;
 	private Integer bookSale;
+	private List<BankAccountDTO> bankAccountDTO; //일대다
 	
 	//개터 세터
 	
