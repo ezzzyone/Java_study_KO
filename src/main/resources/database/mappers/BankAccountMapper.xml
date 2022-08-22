@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		<!DOCTYPE mapper
+		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		    
+<mapper namespace="com.ko.home.BankAccount.BankAccountDAO">
+	<insert id="add" parameterType="BankAccountDTO">
+		INSERT INTO BANKACCOUNT VALUES(ACCOUNT_SEQ.NEXTVAL, #{userName}, #{bookNum}, sysdate)
+	</insert>
+	
+	<select id="getListByUserName" parameterType="BankMembersDTO" resultMap="getListByUserNameResult">
+		select BA.ACCOUNTNUM, BB.BOOKNAME, BA.ACCOUNTDATE 
+		from BANKACCOUNT BA 
+		INNER JOIN
+		BANKBOOK BB
+		ON BA.BOOKNUM = BB.BOOKNUM
+		WHERE BA.USERNAME=#{userName}
+	</select>
+	
+	<resultMap type="BankAccountDTO" id="getListByUserNameResult">
+	<!-- 수동으로 합쳐주기. property는 세터이름(변수명) -->
+	
+	<id column="ACCOUNTNUM" property="accountNum"/>
+	<result column="ACCOUNTDATE" property="accountDate"/>
+	
+	<!-- 조인할때 테이블간의 관계 1:1일때 association 사용-->
+	<association property="bankBookDTO" javaType="BankBookDTO">
+	<result column="BOOKNAME" property="bookName"/> 
+	</association>
+	
+	</resultMap>
+</mapper>

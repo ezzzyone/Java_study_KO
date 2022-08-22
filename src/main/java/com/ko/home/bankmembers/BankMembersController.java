@@ -1,6 +1,7 @@
 package com.ko.home.bankmembers;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,12 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ko.home.BankAccount.BankAccountDTO;
+import com.ko.home.BankAccount.BankAccountService;
+
 @Controller
 @RequestMapping(value = "/member/*")
 public class BankMembersController {
 
 	@Autowired
 	private BankMembersService bankMembersService;
+	@Autowired
+	private BankAccountService bankAccountService;
 	
 	//로그인
 	@RequestMapping(value = "login.ko", method = RequestMethod.GET)
@@ -88,6 +94,20 @@ public class BankMembersController {
 		//경로와 데이터를 함께 보낼때
 		mv.setViewName("member/list");
 		mv.addObject("list", ar);
+		
+		return mv;
+	}
+	
+	@RequestMapping (value = "mypage.ko", method = RequestMethod.GET)
+	public ModelAndView getMyPage(HttpSession session) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		BankMembersDTO bankMembersDTO = (BankMembersDTO)session.getAttribute("member");
+		bankMembersDTO = bankMembersService.getMyPage(bankMembersDTO);
+		//List<BankAccountDTO> ar = bankAccountService.getListByUserName(bankMembersDTO);
+		mv.addObject("dto", bankMembersDTO);
+		//mv.addObject("list", ar);
+		mv.setViewName("member/mypage");
 		
 		return mv;
 	}
