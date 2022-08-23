@@ -21,7 +21,7 @@ public class BankAccountController {
 	@Autowired
 	private BankAccountService bankAccountService;
 	
-	@RequestMapping(value = "add.iu", method = RequestMethod.GET)
+	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add(BankAccountDTO bankAccountDTO, HttpSession session )throws Exception{
 		System.out.println("BankAccount Add");
 		//DTO : userName(세션에서 받기), bookNum(파라미터로 받기)
@@ -38,7 +38,7 @@ public class BankAccountController {
 			System.out.println("통장가입실패!");
 		}
 		
-		return "redirect:../bankbook/list.iu";
+		return "redirect:../bankbook/list";
 	}
 	
 	

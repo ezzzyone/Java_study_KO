@@ -15,7 +15,7 @@
 <section class="container-fluid col-lg-4">
 <div class="row">
 <h1>Login Page</h1>
-<form action="./login.ko" method="post">
+<form action="./login" method="post">
   <div class="mb-3">
     <label for="exampleInputID" class="form-label">ID</label>
     <input type="text" name="userName" class="form-control" id="userName" aria-describedby="idHelp">

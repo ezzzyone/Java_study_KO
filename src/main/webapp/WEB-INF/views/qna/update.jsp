@@ -10,12 +10,15 @@
 	<h1>Update Page</h1>
 
 	<form action="./update" method="post">
-		<input type="hidden" name="bookNum" readonly="readonly" value="${detail.bookNum}">
+		<input type="hidden" name="num" readonly="readonly" value="${detail.num}">
 		<div>
-			Name : <input type="text" name="bookName" value="${detail.bookName}">
+			작성자 : <input type="text" name="writer" value="${detail.writer}">
 		</div>
 		<div>
-			Rate : <input type="text" name="bookRate" value="${detail.bookRate}">
+			제목 : <input type="text" name="title" value="${detail.title}">
+		</div>
+		<div>
+			내용 : <input type="text" name="contents" value="${detail.contents}">
 		</div>
 		<br>
 		<br>

@@ -11,7 +11,7 @@
 	
 	<section class="container-fluid col-lg-5">
 		<div class="row">
-			<form action="./search.iu" method="post">
+			<form action="./search" method="post">
 			
 				<h1>아이디 검색</h1>
 			

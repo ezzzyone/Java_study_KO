@@ -6,7 +6,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-            <a class="navbar-brand" href="#">Bank</a>
+            <a class="navbar-brand" href="#">어서오세요 지원이나라 🐈</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,30 +20,32 @@
                    <%-- if --%>
                    <c:when test="${empty sessionScope.member}">
                       <li class="nav-item">
-                          <a class="nav-link active" href="/member/login.ko">로그인</a>
+                          <a class="nav-link" href="/member/login">로그인</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="/member/join.ko">회원가입</a>
+                          <a class="nav-link" href="/member/join">회원가입</a>
                       </li>
                    </c:when>
+                   
+                   
+                   
                    <%-- else --%>
                    <c:otherwise>
                       <li class="nav-item">
-                          <a class="nav-link" href="/member/logout.ko">로그아웃</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link active" href="/member/mypage.ko">마이페이지</a>
+                          <a class="nav-link active" href="/member/mypage">마이페이지</a>
                       </li>
                    </c:otherwise>
                 </c:choose>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/board/list.iu">공지사항</a>
+                    <a class="nav-link" href="/qna/list">QNA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bankbook/list.iu">상품리스트</a>
+                    <a class="nav-link" href="/bankbook/list">상품리스트</a>
                 </li>
-
+				<li class="nav-item">
+                    <a class="nav-link" href="/member/logout">로그아웃</a>
+                      </li>
                 </ul>
             </div>
             </div>

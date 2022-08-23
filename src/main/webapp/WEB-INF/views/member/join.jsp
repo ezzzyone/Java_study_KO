@@ -13,7 +13,7 @@
 		<div class="row">
 			<h1>Join Page</h1>
 			
-			<form action="./join.iu" method="POST">
+			<form action="./join" method="POST">
 			
 			</form>
 			
