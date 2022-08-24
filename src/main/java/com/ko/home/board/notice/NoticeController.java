@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ko.home.board.impl.BoardDTO;
+import com.ko.home.util.Pager;
 
 @Controller
 @RequestMapping("/notice/*")
@@ -33,14 +34,13 @@ public class NoticeController {
    //파라미터 값 안넘어갈때 자동세팅값 설정
    //public ModelAndView getList(@RequestParam(defaultValue = "1")Long page) throws Exception {
    
-   public ModelAndView getList(@RequestParam(defaultValue = "1") Long page) throws Exception {
+   public ModelAndView getList(Pager pager) throws Exception {
 	  //public ModelAndView getList() throws Exception {
-      List<BoardDTO> ar = noticeService.getList(page);
+      List<BoardDTO> ar = noticeService.getList(pager);
       ModelAndView mv = new ModelAndView();
       mv.addObject("list", ar);
+      mv.addObject("pager", pager); //jsp로 가져가기
       mv.setViewName("board/list");
-     
-   
       return mv;
       
    }

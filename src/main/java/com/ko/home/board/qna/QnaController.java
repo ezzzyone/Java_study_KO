@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ko.home.BankBook.BankBookDTO;
 import com.ko.home.board.impl.BoardDTO;
+import com.ko.home.util.Pager;
 
 
 @Controller
@@ -50,9 +51,8 @@ public class QnaController {
 
 	   // 글목록
 	   @RequestMapping(value = "list", method = RequestMethod.GET)
-	   public ModelAndView getList(@RequestParam(defaultValue = "1")Long page) throws Exception {
-		   System.out.println("list get 실행");
-	      List<BoardDTO> ar = qnaService.getList(page);
+	   public ModelAndView getList(Pager pager) throws Exception {
+	      List<BoardDTO> ar = qnaService.getList(pager);
 	      ModelAndView mv = new ModelAndView();
 	      
 	      mv.addObject("list", ar);

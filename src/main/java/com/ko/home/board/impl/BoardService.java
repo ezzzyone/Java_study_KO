@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.ko.home.util.Pager;
+
 public interface BoardService {
 		//글목록
-		public List<BoardDTO> getList(Long page)throws Exception;
+		public List<BoardDTO> getList(Pager pager)throws Exception;
 		public BoardDTO getDetail(BoardDTO boardDTO ) throws Exception;
 		//글쓰기
 		public int setAdd(BoardDTO boardDTO ) throws Exception;

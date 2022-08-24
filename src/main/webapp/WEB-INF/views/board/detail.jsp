@@ -47,7 +47,7 @@
 	</c:if> --%>
 	
 	<a href="./list">QNA리스트</a>
-	<a href="./upate?writer=${detail.writer}">질문수정</a>
+	<a href="./update?num=${requestScope.detail.num}">질문수정</a>
 	<a href="./delete">삭제</a>
 </body>
 </html>

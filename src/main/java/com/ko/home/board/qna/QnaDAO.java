@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ko.home.board.impl.BoardDAO;
 import com.ko.home.board.impl.BoardDTO;
+import com.ko.home.util.Pager;
 @Repository
 public class QnaDAO implements BoardDAO{
 
@@ -23,9 +24,9 @@ public class QnaDAO implements BoardDAO{
 	}
 	
 	@Override
-	public List<BoardDTO> getList(Map<String, Long> map) throws Exception {
+	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(NAMESPACE+"getList", map);
+		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 
 	@Override

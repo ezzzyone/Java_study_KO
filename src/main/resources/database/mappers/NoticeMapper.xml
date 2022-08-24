@@ -6,7 +6,7 @@
 		    
 <mapper namespace="com.ko.home.board.notice.NoticeDAO">
 
-<select id="getList" resultType="NoticeDTO" parameterType="java.util.Map" >
+<select id="getList" resultType="NoticeDTO" parameterType="Pager" >
 select * from
 (select rownum R, N.* from noticetable N order by num desc)
 where R between #{startRow} and #{lastRow}
