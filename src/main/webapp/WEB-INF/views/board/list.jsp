@@ -14,7 +14,7 @@
 
 <c:import url="../template/header.jsp"></c:import>
 <section class="container-fluid col-lg-2">
-	<h1>QNA 리스트</h1>
+	<h1>${board} 리스트</h1>
 	<!-- /book/list -->
 	
 	<!-- /book/detail   jsp:derail.jsp -->
@@ -39,8 +39,7 @@
 	</table>
 	</section>
 	<c:if test="${not empty sessionScope.member}">
-		<a href="./add">QNA 질문작성</a>
-		<a href="./upate">QNA 질문수정</a>
+		<a href="./add">게시글작성</a>
 	</c:if>
 	
 </body>

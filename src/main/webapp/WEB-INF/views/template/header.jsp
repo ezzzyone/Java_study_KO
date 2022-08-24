@@ -41,6 +41,9 @@
                     <a class="nav-link" href="/qna/list">QNA</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/notice/list">NOTICE</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/bankbook/list">상품리스트</a>
                 </li>
 				<li class="nav-item">

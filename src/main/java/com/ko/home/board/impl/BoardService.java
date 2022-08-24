@@ -5,10 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public interface BoardService {
-
-
 		//글목록
-		public List<BoardDTO> getList()throws Exception;
+		public List<BoardDTO> getList(Long page)throws Exception;
 		public BoardDTO getDetail(BoardDTO boardDTO ) throws Exception;
 		//글쓰기
 		public int setAdd(BoardDTO boardDTO ) throws Exception;
@@ -16,4 +14,5 @@ public interface BoardService {
 		public int setUpdate(BoardDTO boardDTO ) throws Exception;
 		//글삭제
 		public int setDelete(BoardDTO boardDTO ) throws Exception;
+		
 }

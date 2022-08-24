@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ko.home.BankBook.BankBookDTO;
@@ -20,10 +22,17 @@ public class QnaController {
 	
 	@Autowired
 	   private QnaService qnaService;
+	
+	@ModelAttribute("board")
+	public String getBoard() {
+		
+		return "QNA";
+	}
+	
 	@RequestMapping(value = "reply", method = RequestMethod.GET)
 	   public String setReply() throws Exception {
 	      
-	      return "qna/list";
+	      return "board/reply";
 	      
 	   }
 	   @RequestMapping(value = "reply", method = RequestMethod.POST)
@@ -41,13 +50,14 @@ public class QnaController {
 
 	   // 글목록
 	   @RequestMapping(value = "list", method = RequestMethod.GET)
-	   public ModelAndView getList() throws Exception {
+	   public ModelAndView getList(@RequestParam(defaultValue = "1")Long page) throws Exception {
 		   System.out.println("list get 실행");
-	      List<BoardDTO> ar = qnaService.getList();
+	      List<BoardDTO> ar = qnaService.getList(page);
 	      ModelAndView mv = new ModelAndView();
 	      
 	      mv.addObject("list", ar);
-	      mv.setViewName("qna/list");
+	     
+	      mv.setViewName("board/list");
 	      
 	      return mv;
 	      
@@ -60,7 +70,8 @@ public class QnaController {
 		   ModelAndView mv = new ModelAndView();
 	      boardDTO = qnaService.getDetail(boardDTO);
 	      
-	      mv.setViewName("qna/detail");
+	      mv.setViewName("board/detail");
+	      
 	      mv.addObject("detail", boardDTO);
 	      return mv;
 	            
@@ -69,8 +80,8 @@ public class QnaController {
 	   // 글쓰기
 	   @RequestMapping(value = "add", method = RequestMethod.GET)
 	   public String setAdd() throws Exception {
-	      
-	      return "qna/add";
+		
+	      return "board/add";
 	      
 	   }
 	   @RequestMapping(value = "add", method = RequestMethod.POST)
@@ -91,8 +102,8 @@ public class QnaController {
 	      boardDTO = qnaService.getDetail(boardDTO);
 	      
 	      mv.addObject("boardDTO", boardDTO);
-	      mv.setViewName("qna/update");
-	      
+	      mv.setViewName("board/update");
+	    
 	      return mv;
 	      
 	   }
@@ -105,7 +116,7 @@ public class QnaController {
 	   }
 	   
 	   // 글 삭제
-	   @RequestMapping(value = "delete.", method = RequestMethod.GET)
+	   @RequestMapping(value = "delete", method = RequestMethod.GET)
 	   public String setDelete(BoardDTO boardDTO) throws Exception{
 	      int result = qnaService.setDelete(boardDTO);
 	      

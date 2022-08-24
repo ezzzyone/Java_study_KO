@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page import="com.ko.home.board.notice.NoticeDTO"%>
+<%@page import="com.ko.home.board.qna.QnaDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <!-- 요청이 발생하면 생성, 응답이 나가면 소멸 : Requst --> 
@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>QNA 디테일</h1>
+	<h1>${board} 디테일</h1>
 
 	<table border="1">
 		<thead>
@@ -47,5 +47,7 @@
 	</c:if> --%>
 	
 	<a href="./list">QNA리스트</a>
+	<a href="./upate?writer=${detail.writer}">질문수정</a>
+	<a href="./delete">삭제</a>
 </body>
 </html>

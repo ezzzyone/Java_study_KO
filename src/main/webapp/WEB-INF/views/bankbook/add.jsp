@@ -7,26 +7,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>BankBook Add</h1>
+	<h1>${board} 작성 페이지</h1>
 	<br>
+	
+	
 	<form action="./add" method="post">
-		현재 날짜를 입력하세요
+		작성자를 입력하세요
 		<br>
-		<input type="text" name="bookNum">
+		<input type="text" name="writer">
 		<br>
-		통장 이름을 입력하세요
+		글 제목을 입력하세요
 		<br>
-		<input type="text" name="bookName">
+		<input type="text" name="title">
 		<br>
-		이자율을 입력하세요
+		글 내용을 입력하세요
 		<br>
-		<input type="text" name="bookRate">
+		<input type="text" name="contents">
 		<br>
-		판매여부 
-		<input type="button" name="bookSale" value="가능">
-		<br>
-		<br>
-		<input type="submit" value="통장개설 완료"><input type="reset" value="초기화">
+		
+		<input type="submit" value="답글달기완료"><input type="reset" value="초기화">
 		<!-- 위에 말고 밑에는 가능 <butoon type="submit">Add</button> -->
 		
 	</form>

@@ -6,8 +6,10 @@
 		    
 <mapper namespace="com.ko.home.board.notice.NoticeDAO">
 
-<select id="getList" resultType="NoticeDTO" >
-select * from NOTICETABLE ORDER BY NUM DESC
+<select id="getList" resultType="NoticeDTO" parameterType="java.util.Map" >
+select * from
+(select rownum R, N.* from noticetable N order by num desc)
+where R between #{startRow} and #{lastRow}
 </select>
 
 <select id="getDetail" parameterType="BoardDTO" resultType="NoticeDTO" >
@@ -25,5 +27,9 @@ UPDATE NOTICETABLE SET TITLE=#{title}, CONTENTS=#{contents} where WRITER=#{write
 <delete id="setDelete" parameterType="NoticeDTO">
 DELETE NOTICETABLE WHERE NUM=#{num}
 </delete>
+
+<select id="getCount" resultType="Long" >
+select count(num) from noticetable
+</select>
 		
 </mapper>

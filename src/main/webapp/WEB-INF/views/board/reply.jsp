@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>QNA 답글 작성 페이지</h1>
+	<h1>${board} 답글 작성 페이지</h1>
 	<br>
 	
 	
-	<form action="./add" method="post">
+	<form action="./reply" method="post">
 		작성자를 입력하세요
 		<br>
 		<input type="text" name="writer">

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Update Page</h1>
+	<h1>${board} Update Page</h1>
 
 	<form action="./update" method="post">
 		<input type="hidden" name="num" readonly="readonly" value="${detail.num}">
