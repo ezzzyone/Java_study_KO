@@ -12,6 +12,7 @@
 	
 	
 	<form action="./reply" method="post">
+	<input type="hidden" name="num" value="${boardDTO.num}">
 		작성자를 입력하세요
 		<br>
 		<input type="text" name="writer">

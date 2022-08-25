@@ -36,10 +36,9 @@ public class NoticeDAOTest extends MyAbstractTest{
 	 * if(i%10==0) { Thread.sleep(500);} } System.out.println("종료"); }
 	 */
 	   
-	   @Test
-	   public void getCount() throws Exception{
-	   long count = noticeDAO.getCount();
-	   assertEquals(101L, count);
-	   }
+	/*
+	 * @Test public void getCount() throws Exception{ long count =
+	 * noticeDAO.getCount(); assertEquals(101L, count); }
+	 */
 
 }

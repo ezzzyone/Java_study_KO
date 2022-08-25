@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,35 +32,40 @@ public class QnaController {
 		return "QNA";
 	}
 	
-	@RequestMapping(value = "reply", method = RequestMethod.GET)
-	   public String setReply() throws Exception {
-	      
-	      return "board/reply";
-	      
-	   }
-	   @RequestMapping(value = "reply", method = RequestMethod.POST)
-	   public ModelAndView setReply(BoardDTO boardDTO) throws Exception {
-	      ModelAndView mv = new ModelAndView();
-	   
-	      int result = qnaService.setReply(boardDTO);
-	      
-	      mv.setViewName("redirect:./list");
+	@GetMapping("reply")
+	   public ModelAndView setReply(BoardDTO boardDTO,ModelAndView mv) throws Exception {
+		 mv.addObject("boardDTO", boardDTO);
+		 mv.setViewName("board/reply");
 	      
 	      return mv;
+	      
+	   }
+	
+	@PostMapping("reply")
+	   public String setReply(QnaDTO qnaDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = qnaService.setReply(qnaDTO);
+
+	      return "redirect:./list";
 	      
 	   }
 	
 
 	   // 글목록
 	   @RequestMapping(value = "list", method = RequestMethod.GET)
+	   //파라미터의 이름과 매개변수명이 일치 않는 경우 
+	   //@RequestParam(value="파라미터이름")  매개변수데이터타입 매개변수명
+	   //파라미터 값 안넘어갈때 자동세팅값 설정
+	   //public ModelAndView getList(@RequestParam(defaultValue = "1")Long page) throws Exception {
+	   
 	   public ModelAndView getList(Pager pager) throws Exception {
+		  //public ModelAndView getList() throws Exception {
 	      List<BoardDTO> ar = qnaService.getList(pager);
 	      ModelAndView mv = new ModelAndView();
-	      
 	      mv.addObject("list", ar);
-	     
+	      mv.addObject("pager", pager); //jsp로 가져가기
 	      mv.setViewName("board/list");
-	      
 	      return mv;
 	      
 	   }
@@ -71,8 +78,8 @@ public class QnaController {
 	      boardDTO = qnaService.getDetail(boardDTO);
 	      
 	      mv.setViewName("board/detail");
-	      
 	      mv.addObject("detail", boardDTO);
+	      
 	      return mv;
 	            
 	   }
@@ -80,7 +87,7 @@ public class QnaController {
 	   // 글쓰기
 	   @RequestMapping(value = "add", method = RequestMethod.GET)
 	   public String setAdd() throws Exception {
-		
+	      
 	      return "board/add";
 	      
 	   }
@@ -103,7 +110,7 @@ public class QnaController {
 	      
 	      mv.addObject("boardDTO", boardDTO);
 	      mv.setViewName("board/update");
-	    
+	      
 	      return mv;
 	      
 	   }
@@ -123,5 +130,5 @@ public class QnaController {
 	      return "redirect:./list";
 	      
 	   }
-
+	   
 }

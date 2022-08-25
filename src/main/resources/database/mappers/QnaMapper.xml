@@ -6,8 +6,49 @@
 		    
 <mapper namespace="com.ko.home.board.qna.QnaDAO">
 
+
+
+
+<update id="setStepUpdate" parameterType="QnaDTO">
+update QNA set STEP=STEP+1 WHERE REF=#{ref} and STEP >#{step}
+</update>
+
+<sql id="search">
+where
+	<choose>
+		<when test="kind=='title'">title</when>
+		<when test="kind=='writer'">writer</when>
+		<otherwise>contents</otherwise>
+	</choose>
+	LIKE '%'||#{search}||'%'
+</sql>
+
+
+
+<insert id="setReplyAdd" parameterType="QnaDTO">
+<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+</selectKey>
+insert into QNA(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH) values (#{num},#{title},#{contents},#{writer},sysdate,0,#{ref},#{step},#{depth})
+</insert>
+
+<!-- <insert id="setReply" parameterType="QnaDTO">
+<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+</selectKey>
+insert into QNA(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH) values (#{num},#{title},#{contents},#{writer},sysdate,0,#{num},#{step},#{depth})
+</insert> -->
+
+
 <select id="getList" resultType="QnaDTO" >
-select * from QNA ORDER BY NUM DESC
+select * from
+	(select rownum R, N.* from 
+	(select * from qna
+	
+<include refid="search"></include>
+	
+	order by num desc)N)
+where R between #{startRow} and #{lastRow}
 </select>
 
 <select id="getDetail" parameterType="BoardDTO" resultType="QnaDTO" >
@@ -15,7 +56,10 @@ select * from QNA where NUM =#{num}
 </select>
 
 <insert id="setAdd" parameterType="QnaDTO">
-insert into QNA(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT) values (BOARD_SEQ.NEXTVAL,#{title},#{contents},#{writer},sysdate,0)
+<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+</selectKey>
+insert into QNA(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH) values (#{num},#{title},#{contents},#{writer},sysdate,0,#{num},0,0)
 </insert>
 
 <update id="setUpdate" parameterType="QnaDTO" >
@@ -24,9 +68,12 @@ UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents} where WRITER=#{writer}
 
 <delete id="setDelete" parameterType="QnaDTO">
 DELETE QNA WHERE NUM=#{num}
-</delete>
+</delete>	
 
-<insert id="setReply" parameterType="QnaDTO">
-insert into QNA(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH) values (BOARD_SEQ.NEXTVAL,#{title},#{contents},#{writer},sysdate,0,0,0,0)
-</insert>	
+<select id="getCount" resultType="Long" parameterType="Pager" >
+select count(num) from qna
+
+<include refid="search"></include>
+	
+</select>
 </mapper>

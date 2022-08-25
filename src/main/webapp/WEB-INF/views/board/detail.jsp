@@ -46,8 +46,9 @@
 	<a href="../bankAccount/add?bookNum=${detail.bookNum}">통장가입하기</a>
 	</c:if> --%>
 	
-	<a href="./list">QNA리스트</a>
-	<a href="./update?num=${requestScope.detail.num}">질문수정</a>
-	<a href="./delete">삭제</a>
+	<a href="./list" class="btn btn-default" role="button">QNA리스트</a>
+	<a href="./update?num=${boardDTO.num}" class="btn btn-default" role="button">질문수정</a>
+	<a href="./delete" class="btn btn-default" role="button">삭제</a>
+	<a href="./reply?num=${boardDTO.num}" class="btn btn-default" role="button">답글입력</a>
 </body>
 </html>

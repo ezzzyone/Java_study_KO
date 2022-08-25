@@ -6,9 +6,24 @@
 		    
 <mapper namespace="com.ko.home.board.notice.NoticeDAO">
 
+<sql id="search">
+where
+	<choose>
+		<when test="kind=='title'">title</when>
+		<when test="kind=='writer'">writer</when>
+		<otherwise>contents</otherwise>
+	</choose>
+	LIKE '%'||#{search}||'%'
+</sql>
+
 <select id="getList" resultType="NoticeDTO" parameterType="Pager" >
 select * from
-(select rownum R, N.* from noticetable N order by num desc)
+	(select rownum R, N.* from 
+	(select * from noticetable
+	
+<include refid="search"></include>
+	
+	order by num desc)N)
 where R between #{startRow} and #{lastRow}
 </select>
 
@@ -28,8 +43,11 @@ UPDATE NOTICETABLE SET TITLE=#{title}, CONTENTS=#{contents} where WRITER=#{write
 DELETE NOTICETABLE WHERE NUM=#{num}
 </delete>
 
-<select id="getCount" resultType="Long" >
+<select id="getCount" resultType="Long" parameterType="Pager" >
 select count(num) from noticetable
+
+<include refid="search"></include>
+	
 </select>
 		
 </mapper>

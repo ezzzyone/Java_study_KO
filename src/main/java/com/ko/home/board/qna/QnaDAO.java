@@ -17,10 +17,19 @@ public class QnaDAO implements BoardDAO{
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.ko.home.board.qna.QnaDAO.";
 
-	
-	public int setReply(BoardDTO boardDTO) throws Exception {
+	public int setStepUpdate(QnaDTO qnaDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.insert(NAMESPACE+"setReply", boardDTO);
+		return sqlSession.update(NAMESPACE+"setStepUpdate", qnaDTO);
+	}
+	
+	public int setReplyAdd(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.insert(NAMESPACE+"setReplyAdd", boardDTO);
+	}
+	
+	public int setReply(QnaDTO qnaDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.insert(NAMESPACE+"setReply", qnaDTO);
 	}
 	
 	@Override
@@ -30,9 +39,9 @@ public class QnaDAO implements BoardDAO{
 	}
 
 	@Override
-	public Long getCount() throws Exception {
+	public Long getCount(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(NAMESPACE+"getCount");
+		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
 	}
 
 	@Override

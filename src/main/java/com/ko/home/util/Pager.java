@@ -21,6 +21,27 @@ public class Pager {
 	private Long perPage;
 	private Long perBlock;
 	
+	private String search;
+	private String kind;
+	
+	public String getSearch() {
+		if(this.search==null) {
+			this.search="";
+		}
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
 	//이전블럭의 유무- 이전 블럭있으면 true
 	private boolean pre;
 	//다음 블럭 유무
@@ -51,6 +72,9 @@ public class Pager {
 	public void getRowNum()throws Exception{
 		this.startRow = (this.getPage()-1)*this.getPerPage()+1;
 		this.lastRow = this.getPage()*this.getPerPage();
+		System.out.println("startRow"+startRow);
+		System.out.println(lastRow);
+		System.out.println(page);
 	}
 	
 	//2. Jsp에서 사용할 값 계산
@@ -162,7 +186,7 @@ public class Pager {
 		this.startRow = startRow;
 	}
 	public Long getLastRow() {
-		return lastRow;
+		return this.lastRow;
 	}
 	public void setLastRow(Long lastRow) {
 		this.lastRow = lastRow;
