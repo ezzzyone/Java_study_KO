@@ -40,7 +40,7 @@ insert into QNA(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH) va
 </insert> -->
 
 
-<select id="getList" resultType="QnaDTO" >
+<select id="getList" resultType="QnaDTO" parameterType="Pager">
 select * from
 	(select rownum R, N.* from 
 	(select * from qna

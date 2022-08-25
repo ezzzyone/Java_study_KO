@@ -10,15 +10,15 @@
 	<h1>${board} Update Page</h1>
 
 	<form action="./update" method="post">
-		<input type="hidden" name="num" readonly="readonly" value="${detail.num}">
+		<input type="hidden" name="num" readonly="readonly" value="${boardDTO.num}">
 		<div>
-			작성자 : <input type="text" name="writer" value="${detail.writer}">
+		<input type="hidden" name="writer" readonly="readonly" value="${boardDTO.writer}">
 		</div>
 		<div>
-			제목 : <input type="text" name="title" value="${detail.title}">
+			제목 : <input type="text" name="title" value="${boardDTO.title}">
 		</div>
 		<div>
-			내용 : <input type="text" name="contents" value="${detail.contents}">
+			내용 : <input type="text" name="contents" value="${boardDTO.contents}">
 		</div>
 		<br>
 		<br>
