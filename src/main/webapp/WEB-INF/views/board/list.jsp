@@ -44,7 +44,7 @@
            </div>
          
            <div class="col-12">
-             <button type="submit" class="btn btn-primary">검색</button>
+             <button type="submit" class="btn btn-default">검색</button>
            </div>
          </form>
       </div>
@@ -64,7 +64,12 @@
 			<tr>
 				<td>${dto.num}</td>
 				<!-- 파라미터 보낼때 띄어쓰기 하지말기 -->
-				<td><a href="./detail.iu?num=${dto.num}">${dto.title}</a></td>
+				<td>
+				<c:catch>
+				<c:forEach begin="1" end="${dto.depth}" >--</c:forEach>
+				</c:catch>
+				<a href="./detail.iu?num=${dto.num}">${dto.title}</a>
+				</td>
 				<td>${dto.writer}</td>
 				<td>${dto.regdate}</td>
 				<td>${dto.hit}</td>	

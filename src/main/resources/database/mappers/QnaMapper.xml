@@ -47,7 +47,7 @@ select * from
 	
 <include refid="search"></include>
 	
-	order by num desc)N)
+	order by ref desc, step asc)N)
 where R between #{startRow} and #{lastRow}
 </select>
 
