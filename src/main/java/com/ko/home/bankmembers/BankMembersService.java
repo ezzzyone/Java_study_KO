@@ -44,12 +44,11 @@ public class BankMembersService {
 		
 		//2.저장할 폴더의 실제 경로 반환(OS기준)
 		String realpath =  servletContext.getRealPath("resources/upload/member");
-		System.out.println(realpath);
+
 		
 		
 		//3.저장할 폴더의 정보를 가지는 자바 객체 생성
 		File file = new File(realpath);
-		System.out.println(file.isDirectory());
 		
 		//if(photo.getSize()!=0) {}
 		if(!photo.isEmpty()) {

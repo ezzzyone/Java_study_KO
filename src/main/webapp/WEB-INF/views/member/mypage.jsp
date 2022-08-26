@@ -48,6 +48,10 @@
 	<p>${dto.bankbookDTO.bookName}</p>
 	<p>${dto.accountDate}</p>
 	</c:forEach> --%>
+	
+	<div class="row">
+	<img src="../resources/upload/member/${dto.bankMemberFileDTO.fileName}">
+	</div>
 		 
 </body>
 <c:import url="../template/footer.jsp"></c:import>

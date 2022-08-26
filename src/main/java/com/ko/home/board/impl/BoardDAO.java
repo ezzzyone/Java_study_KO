@@ -15,7 +15,7 @@ public interface BoardDAO {
 	public BoardDTO getDetail(BoardDTO boardDTO ) throws Exception;
 	
 	//글쓰기
-	public int setAdd(BoardDTO boardDTO ) throws Exception;
+	public int setAdd(BoardDTO boardDTO) throws Exception;
 	//글수정
 	public int setUpdate(BoardDTO boardDTO ) throws Exception;
 	//글삭제

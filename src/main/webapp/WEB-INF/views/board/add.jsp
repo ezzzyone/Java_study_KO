@@ -26,7 +26,7 @@
 <body>
 	<h1>${board} Add</h1>
 	<br>
-	<form action="./add" method="post">
+	<form action="./add" method="post" enctype="multipart/form-data">
 		작성자를 입력하세요
 		<br>
 		<input type="text" name="writer">
@@ -42,6 +42,21 @@
 		<textarea class="form-control" name="contents" id="contents" rows="3">${boardDTO.contents}</textarea>
 		<br>
 		
+		 <div class="mb-3">
+    <label for="files" class="form-label">Photos</label>
+    <input type="file" name="files" class="form-control" id="files" aria-describedby="idHelp" value="jw1">
+    <div id="idHelp" class="form-text">사진 주세요~</div>
+  </div>
+   <div class="mb-3">
+    <label for="files" class="form-label">Photos</label>
+    <input type="file" name="files" class="form-control" id="files" aria-describedby="idHelp" value="jw1">
+    <div id="idHelp" class="form-text">사진 주세요~</div>
+  </div>
+   <div class="mb-3">
+    <label for="files" class="form-label">Photos</label>
+    <input type="file" name="files" class="form-control" id="files" aria-describedby="idHelp" value="jw1">
+    <div id="idHelp" class="form-text">사진 주세요~</div>
+  </div>
 		<input type="submit" value="답글달기완료"><input type="reset" value="초기화">
 		<!-- 위에 말고 밑에는 가능 <butoon type="submit">Add</button> -->
 		
@@ -49,7 +64,7 @@
 	
 	<%-- without bootstrap 주석 가능 --%>
 <%-- <%-- bootstrap --%>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> --%>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 $("#contents1").summernote();

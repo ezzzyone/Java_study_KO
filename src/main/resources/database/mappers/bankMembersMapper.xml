@@ -5,9 +5,9 @@
 		    
 <mapper namespace="com.ko.home.bankmembers.BankMembersDAO">
 
-	<insert id="setAddFile">
-	insert into memberfile (filename, oriname, username, filenum)
-	values(FILE_SEQ.NEXTVAL, #{oriName}, #{userName}, #{fileNum})
+	<insert id="setAddFile" parameterType="BankMemberFileDTO">
+	insert into memberfile (filenum, oriname, username, filename)
+	values(FILE_SEQ.NEXTVAL, #{oriName}, #{userName}, #{fileName})
 	</insert>
 
 	<select id="getLogin" parameterType="BankMembersDTO" resultType="BankMembersDTO">
@@ -23,28 +23,37 @@
 	</select>
 	
 	<select id="getMyPage" parameterType="BankMembersDTO" resultMap="getMyPageResult">
-      SELECT USERNAME, NAME, EMAIL, PHONE, ACCOUNTNUM, BOOKNAME, ACCOUNTDATE
-      FROM BANKACCOUNT BA
+      SELECT BM.USERNAME, NAME, EMAIL, PHONE, FILENAME, FILENUM, ACCOUNTNUM, BOOKNAME, ACCOUNTDATE
+      FROM BANKMEMBERS BM
+      LEFT JOIN
+      MEMBERFILE MF
+      ON BM.USERNAME = MF.USERNAME
       
           LEFT JOIN 
-          BANKMEMBERS BM
-          USING(USERNAME)
+          BANKACCOUNT BA
+      ON BM.USERNAME = BA.USERNAME
           
           LEFT JOIN
           
           BANKBOOK BB
-          USING(BOOKNUM)
+      ON BA.BOOKNUM = BB.BOOKNUM
           
-      WHERE USERNAME=#{userName}
+      WHERE BM.USERNAME=#{userName}
    </select>
    
-<!--    1:N 관계에는 collection 
+<!--  1:N 관계에는 collection 
       1:1 관계에는 association -->
    <resultMap type="BankMembersDTO" id="getMyPageResult">
       <id column="USERNAME" property="userName"/>
       <result column="NAME" property="name"/>
       <result column="EMAIL" property="email"/>
       <result column="PHONE" property="phone"/>
+      
+      <association property="bankMemberFileDTO" javaType="BankMemberFileDTO">
+      <result column="FILENAME" property="fileName"/>
+      <result column="FILENUM" property="fileNum"/>
+      </association>
+      
       <collection property="bankAccountDTO" javaType="List" ofType="BankAccountDTO">
          <id column="ACCOUNTNUM" property="accountNum"/>
          <result column="ACCOUNTDATE" property="accountDate"/>
@@ -52,6 +61,7 @@
             <result column="BOOKNAME" property="bookName"/>
          </association>
       </collection>
+      
    </resultMap>
    
 </mapper>
