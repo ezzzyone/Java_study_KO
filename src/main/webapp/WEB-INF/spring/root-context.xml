@@ -5,4 +5,15 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
+		<!-- 여러개로 넘어오는 파일조각들모아서 -->
+		<!-- 객체만들떄 : 클래스명 변수명 = new 생성자 -->
+		<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+		<!--  ref:객체타입 value:문자열.. -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- 업로드하는 파일 당 크기제한 -->
+		<property name="maxUploadSizePerFile" value="10485760"></property>
+		<!-- 전체 업로드하는 파이르이 총크기 제한 단위 byte -->
+		<property name="maxUploadSize" value="31457280"></property>
+		
+		</bean>
 </beans>

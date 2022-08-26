@@ -15,6 +15,11 @@ public class BankMembersDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.ko.home.bankmembers.BankMembersDAO.";
 	
+	public int setAddFile(BankMemberFileDTO bankMemberFileDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setAddFile", bankMemberFileDTO);
+	}
+	
+	
 	//로그인
 	public BankMembersDTO getLogin(BankMembersDTO bankMembersDTO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getLogin", bankMembersDTO);

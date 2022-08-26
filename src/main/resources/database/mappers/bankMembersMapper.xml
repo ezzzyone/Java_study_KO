@@ -5,6 +5,11 @@
 		    
 <mapper namespace="com.ko.home.bankmembers.BankMembersDAO">
 
+	<insert id="setAddFile">
+	insert into memberfile (filename, oriname, username, filenum)
+	values(FILE_SEQ.NEXTVAL, #{oriName}, #{userName}, #{fileNum})
+	</insert>
+
 	<select id="getLogin" parameterType="BankMembersDTO" resultType="BankMembersDTO">
 		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{passWord}
 	</select>
@@ -21,11 +26,11 @@
       SELECT USERNAME, NAME, EMAIL, PHONE, ACCOUNTNUM, BOOKNAME, ACCOUNTDATE
       FROM BANKACCOUNT BA
       
-          INNER JOIN 
+          LEFT JOIN 
           BANKMEMBERS BM
           USING(USERNAME)
           
-          INNER JOIN
+          LEFT JOIN
           
           BANKBOOK BB
           USING(BOOKNUM)
