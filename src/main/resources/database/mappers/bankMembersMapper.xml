@@ -41,8 +41,8 @@
       WHERE BM.USERNAME=#{userName}
    </select>
    
-<!--  1:N 관계에는 collection 
-      1:1 관계에는 association -->
+<!--  1:N 관계에는 collection:한 member가 여러개의 계정과 통장을 가지고있을 수 있음.
+      1:1 관계에는 association :한 members는 가입시 넣은 한개의  이미지파일을 가지고있음.-->
    <resultMap type="BankMembersDTO" id="getMyPageResult">
       <id column="USERNAME" property="userName"/>
       <result column="NAME" property="name"/>

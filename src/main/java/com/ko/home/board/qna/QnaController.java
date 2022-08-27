@@ -96,7 +96,7 @@ public class QnaController {
 	   public ModelAndView setAdd(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
 	      ModelAndView mv = new ModelAndView();
 	   
-	      int result = qnaService.setAdd(boardDTO);
+	      int result = qnaService.setAdd(boardDTO, files);
 	      
 	      mv.setViewName("redirect:./list");
 	      
