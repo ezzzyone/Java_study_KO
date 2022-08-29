@@ -27,12 +27,26 @@ select * from
 where R between #{startRow} and #{lastRow}
 </select>
 
-<select id="getDetail" parameterType="BoardDTO" resultType="NoticeDTO" >
-select * from NOTICETABLE where NUM =#{num}
+<select id="getDetail" parameterType="BoardDTO" resultMap="getDetailResult" >
+select N.*, NF.*
+ from NOTICETABLE N
+ LEFT JOIN
+ NOTICEFILE NF
+ ON N.NUM = NF.NUM
+ where N.NUM=#{num}
 </select>
 
-<insert id="setAdd" parameterType="NoticeDTO">
-insert into NOTICETABLE(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT) values (BOARD_SEQ.NEXTVAL,#{title},#{contents},#{writer},sysdate,0)
+<insert id="setAddFile" parameterType="BoardFileDTO">
+		INSERT INTO NOTICEFILE
+		VALUES(#{fileName}, #{oriName}, FILE_SEQ.NEXTVAL, #{num})
+	</insert>
+
+
+<insert id="setAdd" parameterType="BoardDTO">
+		<selectKey order="BEFORE" keyProperty="num" resultType="Long">
+			SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+insert into NOTICETABLE(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT) values (#{num},#{title},#{contents},#{writer},sysdate,0)
 </insert>
 
 <update id="setUpdate" parameterType="NoticeDTO" >
@@ -49,5 +63,20 @@ select count(num) from noticetable
 <include refid="search"></include>
 	
 </select>
+
+
+<resultMap type="NoticeDTO" id="getDetailResult">
+<id column="num" property="num"/>
+<result column="title" property="title"/>
+<result column="writer" property="writer"/>
+<result column="contents" property="contents"/>
+<result column="regdate" property="regdate"/>
+<result column="hit" property="hit"/>
+<collection property="boardFileDTO" javaType="List" ofType="BoardFileDTO">
+<id column="FILENUM" property="fileNum"/>
+<result column="FILENAME" property="fileName"/>
+<result column="ORINAME" property="oriName"/>
+</collection>
+</resultMap>
 		
 </mapper>

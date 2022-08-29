@@ -3,6 +3,7 @@ package com.ko.home.bankmembers;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -64,14 +65,17 @@ public class BankMembersController {
 	}
 
 	@RequestMapping(value = "join", method = RequestMethod.POST)
-	public String join(BankMembersDTO bankMembersDTO, MultipartFile photo) throws Exception {
+	public String join(BankMembersDTO bankMembersDTO, MultipartFile photo, HttpSession session) throws Exception {
 		System.out.println("회원가입 접속 (POST)");
 		System.out.println("업로드시 파일명: " + photo.getOriginalFilename());
 		System.out.println("업로드시 파라미터명: " + photo.getName());
 		System.out.println("업로드 파일 크기: " + photo.getSize());
-
 		
-		  int result = bankMembersService.setJoin(bankMembersDTO, photo); if(result>0) {
+		
+		  int result = bankMembersService.setJoin(bankMembersDTO, photo, session.getServletContext()); 
+		  
+		  
+		  if(result>0) {
 		  System.out.println("회원가입 성공!"); }else { System.out.println("회원가입 실패.."); }
 		 
 

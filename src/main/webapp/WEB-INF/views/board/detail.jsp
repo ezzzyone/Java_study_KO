@@ -32,6 +32,12 @@
 				<td>${detail.regdate}</td>
 				<td>${detail.hit}</td>
 			</tr>
+			
+			<c:forEach items="${detail.boardFileDTO}" var="fileDTO">
+			<p>
+			<a href="../resources/upload/${board}/${fileDTO.fileName}">${fileDTO.oriName}</a>
+			</p>
+			</c:forEach>
 		</tbody>
 	</table>
 	

@@ -15,15 +15,18 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ko.home.bankmembers.BankMemberFileDTO;
 import com.ko.home.board.impl.BoardDTO;
+import com.ko.home.board.impl.BoardFileDTO;
 import com.ko.home.board.impl.BoardService;
+import com.ko.home.util.FileManager;
 import com.ko.home.util.Pager;
 @Service
 public class NoticeService implements BoardService{
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
+	
 	@Autowired
-	private ServletContext servletContext;
+	private FileManager fileManager;
 
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
@@ -129,37 +132,62 @@ public class NoticeService implements BoardService{
 	}
 
 	@Override
-	public int setAdd(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
+	public int setAdd(BoardDTO boardDTO, MultipartFile [] files, ServletContext servletContext) throws Exception {
 		
-		 int result = noticeDAO.setAdd(boardDTO);
 		
-		String realpath =servletContext.getRealPath("resources/upload/notice");
+		//fileManager로 받아오기
 		
-		File file = new File(realpath);
-			if(!file.exists()) 
-				file.mkdirs();
+		
+		int result = noticeDAO.setAdd(boardDTO);
+		String path="resources/upload/notice";
+		
+		for(MultipartFile multipartFile: files) {
+			if(multipartFile.isEmpty()) {
+				continue;
+			}
+			String fileName = fileManager.saveFile(servletContext, path, multipartFile);
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriName(multipartFile.getOriginalFilename());
+			boardFileDTO.setNum(boardDTO.getNum());
+			noticeDAO.setAddFile(boardFileDTO);
+		}
+		
+		
+		
+		return result;//
 			
-			Calendar ca = Calendar.getInstance();
-			Long time = ca.getTimeInMillis();
-
-			
-			for (MultipartFile mf : files) {
-				file = new File(realpath);
-				String fileName =UUID.randomUUID().toString();
-				fileName = fileName+"_"+mf.getOriginalFilename();
-				file = new File(file, fileName);
-				mf.transferTo(file);
-				if(mf.isEmpty()) {
-					continue;
-				}	
-				
-				}
-				
-			
-		
-	
-		return result;
-	}
+		 }
+		 
+		 
+			/*
+			 * String realpath =servletContext.getRealPath("resources/upload/notice");
+			 * 
+			 * File file = new File(realpath); if(!file.exists()) file.mkdirs();
+			 * 
+			 * Calendar ca = Calendar.getInstance(); Long time = ca.getTimeInMillis();
+			 * 
+			 * 
+			 * for (MultipartFile mf : files) { file = new File(realpath); String fileName
+			 * =UUID.randomUUID().toString(); fileName =
+			 * fileName+"_"+mf.getOriginalFilename(); file = new File(file, fileName);
+			 * mf.transferTo(file); if(mf.isEmpty()) { continue; }
+			 * 
+			 * BoardFileDTO boardFileDTO = new BoardFileDTO();
+			 * boardFileDTO.setFileName(fileName);
+			 * boardFileDTO.setOriName(mf.getOriginalFilename());
+			 * boardFileDTO.setNum(boardDTO.getNum()); noticeDAO.setAddFile(boardFileDTO);
+			 * 
+			 * }
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * return result;
+			 * 
+			 * }
+			 */
 
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {

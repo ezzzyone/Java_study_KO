@@ -24,8 +24,7 @@ public class BankMembersService {
 	private BankMembersDAO bankMembersDAO;
 	@Autowired
 	private BankAccountDAO bankAccountDAO;
-	@Autowired
-	private ServletContext servletContext; //외부랑 연결
+
 	
 	//로그인
 	public BankMembersDTO getLogin(BankMembersDTO bankMembersDTO)throws Exception{
@@ -33,7 +32,7 @@ public class BankMembersService {
 	}
 	
 	//회원가입
-	public int setJoin(BankMembersDTO bankMembersDTO, MultipartFile photo)throws Exception{
+	public int setJoin(BankMembersDTO bankMembersDTO, MultipartFile photo, ServletContext servletContext)throws Exception{
 		
 		int result = bankMembersDAO.setJoin(bankMembersDTO);
 
@@ -44,11 +43,12 @@ public class BankMembersService {
 		
 		//2.저장할 폴더의 실제 경로 반환(OS기준)
 		String realpath =  servletContext.getRealPath("resources/upload/member");
-
+		System.out.println("파일경로" + realpath);
 		
 		
 		//3.저장할 폴더의 정보를 가지는 자바 객체 생성
 		File file = new File(realpath);
+		
 		
 		//if(photo.getSize()!=0) {}
 		if(!photo.isEmpty()) {

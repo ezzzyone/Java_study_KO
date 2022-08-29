@@ -1,8 +1,9 @@
 package com.ko.home.board.impl;
 
-import com.ko.home.file.FIleDTO;
 
-public class BoardFileDTO extends FIleDTO {
+import com.ko.home.file.FileDTO;
+
+public class BoardFileDTO extends FileDTO {
 
 	//qna 이거 쓰면댐 ㅋ 
 	
@@ -15,4 +16,5 @@ public class BoardFileDTO extends FIleDTO {
 	public void setNum(Long num) {
 		this.num = num;
 	}
+
 }

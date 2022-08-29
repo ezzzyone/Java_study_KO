@@ -17,6 +17,7 @@
  		<typeAlias type="com.ko.home.board.qna.QnaDTO" alias="QnaDTO"/>
  		<typeAlias type="com.ko.home.board.impl.BoardDTO" alias="BoardDTO"/>
  		<typeAlias type="com.ko.home.bankmembers.BankMemberFileDTO" alias="BankMemberFileDTO"/>
+ 		<typeAlias type="com.ko.home.board.impl.BoardFileDTO" alias="BoardFileDTO"/>
  	</typeAliases>
 
  </configuration>
