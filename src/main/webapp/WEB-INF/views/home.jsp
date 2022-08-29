@@ -2,12 +2,15 @@
 <%-- <%@ page session="false" %> 이거지우기!!!!!!!! --%>
 <head>
 	<title>Home</title>
+	<script></script>
 </head>
 <body>
 <h1>
 	Main Page  
 	Hello world!  
 </h1>
+
+<h3>ADD VSCODE</h3>
 <P>  The time on the server is ${serverTime}. </P>
 
 <P>  The time on the server is ${serverTime}. </P>
@@ -25,5 +28,10 @@
 	
 	<button type="button" onclick="location.href='./member/list.iu'">아이디검색</button>
 	<button type="button" onclick="location.href='./bankbook/list.iu'">통장리스트</button>
+
+	<script>
+
+		alert("hello");
+	</script>
 </body>
 </html>
