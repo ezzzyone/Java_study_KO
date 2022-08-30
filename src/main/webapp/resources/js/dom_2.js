@@ -18,33 +18,26 @@ const year = document.getElementById("year");
 const month = document.getElementById("month");
 const date = document.getElementById("date");
 
-let setyear = window.prompt("년을 입력해봐라");
-for(i=1990;i<=setyear;i++){
+for(i=2022;i>1990;i--){
    year.innerHTML+='<option>'+i+'</option>'
-}
-
-let setmonth = window.prompt("달을 입력해봐라");
-for(i=1;i<=setmonth;i++){
-   month.innerHTML+='<option>'+i+'</option>'
-}
-
-let setdate = window.prompt("일을 입력해봐라");
-for(i=1;i<=setdate;i++){
-   date.innerHTML+='<option>'+i+'</option>'
 }
 
 let rowcount = window.prompt("테이블 행을 입력해봐라");
 let colcount = window.prompt("테이블 열을 입력해봐라");
-const d4 = document.getElementById("d4");
-for(i=0;i<rowcount;i++){
-    d4.innerHTML += '<tr>'
 
-    for(y=0;y<colcount;y++){
-        d4.innerHTML += '<td>'+"d"+'</td>'
+let table ="";
+
+for(let i=0;i<rowcount;i++){
+   table += "<tr>";
+
+    for(let y=0;y<colcount;y++){
+        table+="<td>"+i+y+"</td>";
 
     }
-    d4.innerHTML += '</tr>'
+    table +='</tr>'
 }
+
+d4.innerHTML = table;
 
 
 
