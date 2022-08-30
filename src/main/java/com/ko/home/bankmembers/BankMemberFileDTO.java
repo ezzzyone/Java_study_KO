@@ -1,8 +1,8 @@
 package com.ko.home.bankmembers;
 
-import com.ko.home.file.FIleDTO;
+import com.ko.home.file.FileDTO;
 
-public class BankMemberFileDTO extends FIleDTO{
+public class BankMemberFileDTO extends FileDTO{
 
 	private String userName;
 
