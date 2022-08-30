@@ -30,16 +30,16 @@
            <div class="col-12">
              <label class="visually-hidden" for="kind">kind</label>
              <select name="kind" class="form-select" id="kind">
-               <option value="Contents">Contents</option>
-               <option value="Title">Title</option>
-               <option value="Writer">Writer</option>
+               <option class="kinds" value="Contents">Contents</option>
+               <option class="kinds" value="Title">Title</option>
+               <option class="kinds" value="Writer">Writer</option>
              </select>
            </div>
          
            <div class="col-12">
              <label class="visually-hidden" for="search">검색어</label>
              <div class="input-group">
-               <input type="text" name="search" value="" class="form-control" id="search">
+               <input type="text" name="search" value="${param.search}" class="form-control" id="search">
              </div>
            </div>
          
@@ -116,7 +116,29 @@
 	</section>
 
 
+	<script src="/resources/js/board.js"></script>
+
+	<script>
+
 	
+
+		let k ='${param.kind}';
+		const kinds = document.getElementsByClassName("kinds");
+
+		for(let i=0;i<kinds.length;i++){
+			if(kinds[i].value==k){
+			kinds[i].selected=true;
+			}
+		}
+
+
+
+		
+	
+		
+
+	</script>
+
 </body>
 
 <c:import url="../template/footer.jsp"></c:import>
