@@ -41,5 +41,8 @@
 </section>
 </body>
   <script src="/resources/js/member.js"></script>
+  <script>
+    logincheck();
+  </script>
     <c:import url="../template/footer.jsp"></c:import>
 </html>

@@ -23,7 +23,7 @@
                           <a class="nav-link" href="/member/login">로그인</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="/member/join">회원가입</a>
+                          <a class="nav-link" href="/member/agree">회원가입</a>
                       </li>
                    </c:when>
                    
