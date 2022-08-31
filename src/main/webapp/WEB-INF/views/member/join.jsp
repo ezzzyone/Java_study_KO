@@ -4,6 +4,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<style>
+	.col{
+		color:red;
+	}
+</style>
   </head>
 <body>
 
@@ -25,28 +30,28 @@
 			    <label for="inputUserName" class="col-sm-2 col-form-label">ID</label>
 			    <div class="col-sm-10">
 			      <input type="text" name="userName" class="form-control" id="inputUserName" placeholder="ID 입력">
-			    <div id="d1"></div>
+			    <div id="d1" class="col"></div>
 			    </div>
 			  </div>
 			  <div class="row mb-3">
 			    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
 			    <div class="col-sm-10">
 			      <input type="password" name="passWord" class="form-control" id="inputPassword" placeholder="Password 입력">
-			    <div id="d2"></div>
+			    <div id="d2" class="col"></div>
 			    </div>
 			  </div>
 			  <div class="row mb-3">
 			    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
 			    <div class="col-sm-10">
 			      <input type="password" name="passWord2" class="form-control" id="inputPassword2" placeholder="Password 입력">
-			    <div id="d3"></div>
+			    <div id="d3" class="col"></div>
 			    </div>
 			  </div>
 			  <div class="row mb-3">
 			    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
 			    <div class="col-sm-10">
 			      <input type="text" name="name" class="form-control" id="inputName" placeholder="이름 입력">
-			    <div id="d4"></div>
+			    <div id="d4" class="col"></div>
 			    </div>
 			  </div>
 			  
@@ -54,14 +59,14 @@
 			    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 			    <div class="col-sm-10">
 			      <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email 입력">
-			    <div id="d5"></div>
+			    <div id="d5" class="col"></div>
 			    </div>
 			  </div>
 			  <div class="row mb-3">
 			    <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
 			    <div class="col-sm-10">
 			      <input type="text" name="phone" class="form-control" id="inputPhone" placeholder="전화번호 입력">
-			   <div id="d6"></div>
+			   <div id="d6" class="col"></div>
 			    </div>
 			  </div>
 			  <div class="row justify-content-end">

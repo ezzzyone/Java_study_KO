@@ -103,6 +103,8 @@ function checkjoin(){
     const frm = document.getElementById("frm");
 
 
+
+
     btn.addEventListener("click", function(){
 
         let u = uname.value;
@@ -120,43 +122,25 @@ function checkjoin(){
     uname.addEventListener("blur", function(){
 
         let u = uname.value;
-    
-         if(u.length<3){
+        let h ='';
+
+            if(u.length<3){
             uname.focus();
             d1.innerHTML='ID는 2글자 이상이어야합니다'
+        }else {d1.innerHTML= h;
         }
-
-    
-    });
-
-    uname.addEventListener("change", function(){
-
-        let u = uname.value;
-    
-         if(u.length>2){
-            d1.innerHTML=' '
-        }
-
     
     });
 
     pw.addEventListener("blur", function(){
 
         let p = pw.value;
-    
+        let h ='';
+
          if(p.length<7){
             pw.focus();
             d2.innerHTML='pw는 6글자 이상이어야합니다'
-        }
-    
-    });
-
-    pw.addEventListener("change", function(){
-
-        let p = pw.value;
-    
-         if(p.length>8){
-            d2.innerHTML=' '
+        }else {d2.innerHTML= h;
         }
     
     });
@@ -164,61 +148,34 @@ function checkjoin(){
     name.addEventListener("blur", function(){
 
         let n = name.value;
-    
+        let h ='';
          if(n.length<2){
             name.focus();
             d4.innerHTML='이름은 1글자 이상이어야합니다'
+        }else {d4.innerHTML= h;
         }
     
     });
 
-    name.addEventListener("change", function(){
-
-        let n = name.value;
-    
-         if(n.length>3){
-          
-            d4.innerHTML=' '
-        }
-    
-    });
 
     email.addEventListener("blur", function(){
         let e = email.value;
-    
+        let h ='';
          if(e.length<2){
             email.focus();
             d5.innerHTML='이메일은 1글자 이상이어야합니다'
-        }
-    
-    });
-
-    email.addEventListener("change", function(){
-        let e = email.value;
-    
-         if(e.length>3){
-          
-            d5.innerHTML=' '
+        }else {d5.innerHTML= h;
         }
     
     });
 
     phone.addEventListener("blur", function(){
         let ph = phone.value;
-    
+        let h ='';
          if(ph.length<2){
             phone.focus();
             d6.innerHTML='번호는 1글자 이상이어야합니다'
-        }
-    
-    });
-
-    phone.addEventListener("change", function(){
-        let ph = phone.value;
-    
-         if(ph.length>3){
-       
-            d6.innerHTML=' '
+        }else {d6.innerHTML= h;
         }
     
     });
@@ -227,25 +184,16 @@ function checkjoin(){
 
         let p = pw.value;
         let p2 = pw2.value;
+        let h ='';
     
          if(p2.length!=p.length){
             pw2.focus();
             d3.innerHTML='비밀번호가 불일치합니다'
+        }else {d3.innerHTML= h;
         }
     
     });
 
-    pw2.addEventListener("change", function(){
-
-        let p = pw.value;
-        let p2 = pw2.value;
-    
-         if(p2.length==p.length){
-       
-            d3.innerHTML=' '
-        }
-    
-    });
     
 
 
