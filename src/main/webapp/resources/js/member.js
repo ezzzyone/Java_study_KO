@@ -107,92 +107,113 @@ function checkjoin(){
 
     btn.addEventListener("click", function(){
 
-        let u = uname.value;
-        let p = pw.value;
-        let p2 = pw2.value;
-        let n = name.value;
-        let e = email.value;
-        let ph = phone.value;
-        
-        if(u.length>3 && p.length>7 && p2.length>7 && n.length>2  && e.length>2  && ph.length>2){
-            frm.submit();
+        // let u = uname.value;
+        // let p = pw.value;
+        // let p2 = pw2.value;
+        // let n = name.value;
+        // let e = email.value;
+        // let ph = phone.value;
+
+        let unameCheck=false;
+        let pwCheck=false;
+        let pw2Check=false;
+        let nameCheck=false;
+        let emailCheck=false;
+        let phoneCheck=false;
+
+        if(unameCheck==true && pwCheck==true && pw2Check==true && nameCheck==true && emailCheck==true && phoneCheck==true ){
+        frm.submit();
         }
+
+
+
+        // if(u.length>3 && p.length>7 && p2.length>7 && n.length>2  && e.length>2  && ph.length>2){
+        //     frm.submit();
+        // }
     });
 
     uname.addEventListener("blur", function(){
 
-        let u = uname.value;
-        let h ='';
-
-            if(u.length<3){
+        if(uname.value.length>1){
+            unameCheck=true;
+            d1.innerHTML='';
+        }else {
             uname.focus();
-            d1.innerHTML='ID는 2글자 이상이어야합니다'
-        }else {d1.innerHTML= h;
+            unameCheck=false;
+            d1.innerHTML='ID는 2글자 이상이어야합니다';
         }
     
     });
 
-    pw.addEventListener("blur", function(){
+    pw.addEventListener("change", function(){
 
-        let p = pw.value;
-        let h ='';
-
-         if(p.length<7){
+        if(pw.value.length>5){
+            pwCheck=true;
+            d2.innerHTML='';
+            pw2.value="";
+        }else {
             pw.focus();
-            d2.innerHTML='pw는 6글자 이상이어야합니다'
-        }else {d2.innerHTML= h;
+            pwCheck=false;
+            d2.innerHTML='pw는 6글자 이상이어야합니다';
+        }
+
+    });
+
+    pw2.addEventListener("blur", function(){
+
+        if(pw.value==pw2.value){
+            pw2Check=true;
+            d3.innerHTML='';
+        }else {
+            pw2.focus();
+            pw2Check=false;
+            d3.innerHTML='비밀번호가 불일치합니다';
+            pw2.value='';
         }
     
     });
 
     name.addEventListener("blur", function(){
 
-        let n = name.value;
-        let h ='';
-         if(n.length<2){
+        if(name.value.length>0){
+            nameCheck=true;
+            d4.innerHTML='';
+        }else {
             name.focus();
-            d4.innerHTML='이름은 1글자 이상이어야합니다'
-        }else {d4.innerHTML= h;
+            nameCheck=false;
+            d4.innerHTML='이름은 1글자 이상이어야합니다';
         }
     
     });
 
 
     email.addEventListener("blur", function(){
-        let e = email.value;
-        let h ='';
-         if(e.length<2){
+
+        if(email.value.length>0){
+            emailCheck=true;
+            d5.innerHTML='';
+        }else {
             email.focus();
-            d5.innerHTML='이메일은 1글자 이상이어야합니다'
-        }else {d5.innerHTML= h;
+            emailCheck=false;
+            d5.innerHTML='이메일은 1글자 이상이어야합니다';
         }
     
     });
 
     phone.addEventListener("blur", function(){
-        let ph = phone.value;
-        let h ='';
-         if(ph.length<2){
+
+        if(phone.value.length>0){
+            phoneCheck=true;
+            d6.innerHTML='';
+        }else {
             phone.focus();
-            d6.innerHTML='번호는 1글자 이상이어야합니다'
-        }else {d6.innerHTML= h;
+            phoneCheck=false;
+            d6.innerHTML='번호는 1글자 이상이어야합니다';
         }
     
     });
 
-    pw2.addEventListener("blur", function(){
 
-        let p = pw.value;
-        let p2 = pw2.value;
-        let h ='';
-    
-         if(p2.length!=p.length){
-            pw2.focus();
-            d3.innerHTML='비밀번호가 불일치합니다'
-        }else {d3.innerHTML= h;
-        }
-    
-    });
 
     
 
