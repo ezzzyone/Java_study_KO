@@ -155,7 +155,7 @@ function checkjoin(){
 
         let p = pw.value;
     
-         if(p.length<7){
+         if(p.length>8){
             d2.innerHTML=' '
         }
     
@@ -176,9 +176,19 @@ function checkjoin(){
 
         let n = name.value;
     
-         if(n.length<2){
+         if(n.length>3){
           
             d4.innerHTML=' '
+        }
+    
+    });
+
+    email.addEventListener("blur", function(){
+        let e = email.value;
+    
+         if(e.length<2){
+            email.focus();
+            d5.innerHTML='이메일은 1글자 이상이어야합니다'
         }
     
     });
@@ -186,12 +196,13 @@ function checkjoin(){
     email.addEventListener("change", function(){
         let e = email.value;
     
-         if(e.length<2){
+         if(e.length>3){
           
             d5.innerHTML=' '
         }
     
     });
+
     phone.addEventListener("blur", function(){
         let ph = phone.value;
     
@@ -205,7 +216,7 @@ function checkjoin(){
     phone.addEventListener("change", function(){
         let ph = phone.value;
     
-         if(ph.length<2){
+         if(ph.length>3){
        
             d6.innerHTML=' '
         }
@@ -229,7 +240,7 @@ function checkjoin(){
         let p = pw.value;
         let p2 = pw2.value;
     
-         if(p2.length!=p.length){
+         if(p2.length==p.length){
        
             d3.innerHTML=' '
         }
