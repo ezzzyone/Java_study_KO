@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <style>
-    #col{
+    .col{
       background-color:cornsilk;
       overflow: scroll;
       width: 600px;

@@ -42,21 +42,26 @@
 		<textarea class="form-control" name="contents" id="contents" rows="3">${boardDTO.contents}</textarea>
 		<br>
 		
-		 <div class="mb-3">
+		 <!-- <div class="mb-3">
     <label for="files" class="form-label">Photos</label>
-    <input type="file" name="files" class="form-control" id="files" aria-describedby="idHelp" value="jw1">
-    <div id="idHelp" class="form-text">사진 주세요~</div>
+    <input type="file" name="files" class="form-control" id="files">
   </div>
    <div class="mb-3">
     <label for="files" class="form-label">Photos</label>
-    <input type="file" name="files" class="form-control" id="files" aria-describedby="idHelp" value="jw1">
-    <div id="idHelp" class="form-text">사진 주세요~</div>
+    <input type="file" name="files" class="form-control" id="files">
   </div>
    <div class="mb-3">
     <label for="files" class="form-label">Photos</label>
-    <input type="file" name="files" class="form-control" id="files" aria-describedby="idHelp" value="jw1">
-    <div id="idHelp" class="form-text">사진 주세요~</div>
+    <input type="file" name="files" class="form-control" id="files">
+  </div> -->
+
+  <div id="addfiles">
+
+    <button type="button" id="btn">파일추가</button>
+
   </div>
+
+
 		<input type="submit" value="답글달기완료"><input type="reset" value="초기화">
 		<!-- 위에 말고 밑에는 가능 <butoon type="submit">Add</button> -->
 		
@@ -71,4 +76,5 @@ $("#contents1").summernote();
 </script>
 
 </body>
+<script src="/resources/js/add.js"></script>
 </html>
