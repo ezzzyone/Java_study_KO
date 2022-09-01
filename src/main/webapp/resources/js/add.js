@@ -3,10 +3,12 @@ const btn = document.getElementById("btn");
 
 
 let count = 0;
+let idx=0;
 
-btn.addEventListener("click", function(){
+btn.addEventListener("click", function(event){
     
     count++;
+    idx++;
 
     if(count>5){
         alert("최대 5개까지 첨부가 가능합니다 ^^")
@@ -18,6 +20,10 @@ btn.addEventListener("click", function(){
     let d = document.createElement("div");
     let c = document.createAttribute("class");
     c.value ="mb-3";
+    d.setAttributeNode(c);
+    c = document.createAttribute("id");
+    c.value ="file"+idx;
+
     d.setAttributeNode(c);
     
     
@@ -63,9 +69,53 @@ btn.addEventListener("click", function(){
 
     d.appendChild(i); //자식추가
 
+       //delete
+       let b = document.createElement("button");
+
+       let ty2 = document.createAttribute("type");
+       ty2.value="button";
+       b.setAttributeNode(ty2);
+       
+       let t2 = document.createTextNode("삭제");
+        b.appendChild(t2);
+   
+       let c4 = document.createAttribute("class");
+       c4.value ="del btn btn-danger";
+       b.setAttributeNode(c4);
+
+       c4 = document.createAttribute("title");
+       c4.value =idx;
+       b.setAttributeNode(c4);
+   
+       d.appendChild(b); //자식추가
+
 
     addfiles.append(d);
 
-
+    
 
 })
+
+addfiles.addEventListener("click", function(event){
+
+    if(event.target.classList[0]=='del'){
+        alert(event.target.innerHTML);
+    }
+
+       // let v = event.target.title;
+    })
+
+        
+        
+
+  
+
+    
+
+
+    
+
+
+
+
+
