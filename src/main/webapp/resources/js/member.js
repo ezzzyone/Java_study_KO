@@ -62,7 +62,7 @@ function check(){
             }
         })
 
-    for(let i=0;i<i.length;i++){
+    for(let i=0;i<cb.length;i++){
         
         cb[i].addEventListener("click", function(){
             let result =true;
