@@ -13,6 +13,11 @@
       height: 100px;
     }
 
+    #po{
+      font-size: 10pt;
+      color: darkgray;
+    }
+
 
   </style>
   </head>
@@ -30,7 +35,7 @@
 
   <div>
 
-  <h5><strong>전체동의<input type="checkbox" id="all"></strong></h5>
+  <h5><strong>전체동의 <input type="checkbox" id="all"></strong></h5>
   <div></div>
 
   약관(필수)<input type="checkbox" class="cb req" >
@@ -57,7 +62,7 @@
     2. 본 약관에서 정의하지 않은 용어는 개별서비스에 대한 별도약관 및 이용규정에서 정의합니다.
 
   </div>
-  약관(필수)<input type="checkbox" class="cb req" >
+  약관(필수) <input type="checkbox" class="cb req" >
 
   
   <div class="col">
@@ -81,7 +86,7 @@
     이용자는 동의를 거부할 권리가 있습니다. 동의를 거부할 경우에는 서비스 이용에 제한됨을 알려드립니다.
 
   </div>
-  약관(필수)<input type="checkbox" class="cb req" >
+  약관(필수) <input type="checkbox" class="cb req" >
   
   <div class="col">
     제 9 조 (서비스 이용시간)
@@ -103,7 +108,7 @@
 
 
   </div>
-  약관(선택)<input type="checkbox" class="cb" >
+  약관(선택) <input type="checkbox" class="cb" >
 </div>
 
 <form id="frm" action="./join">

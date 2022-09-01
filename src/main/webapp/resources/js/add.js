@@ -1,21 +1,28 @@
 const addfiles = document.getElementById("addfiles");
 const btn = document.getElementById("btn");
 
+
+let count = 0;
+
 btn.addEventListener("click", function(){
+    
+    count++;
+
+    if(count>5){
+        alert("최대 5개까지 첨부가 가능합니다 ^^")
+        return;
+    }
+    
 
     //div
     let d = document.createElement("div");
     let c = document.createAttribute("class");
     c.value ="mb-3";
     d.setAttributeNode(c);
-
-    
-    
     
     
     //lable
 
-    
 
     let l = document.createElement("lable");
     let f = document.createAttribute("for");
@@ -55,14 +62,9 @@ btn.addEventListener("click", function(){
     i.setAttributeNode(c3);
 
     d.appendChild(i); //자식추가
-    
 
 
     addfiles.append(d);
-
-
-
-
 
 
 
