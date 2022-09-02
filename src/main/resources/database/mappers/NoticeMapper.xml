@@ -19,7 +19,7 @@ where
 <select id="getList" resultType="NoticeDTO" parameterType="Pager" >
 select * from
 	(select rownum R, N.* from 
-	(select * from noticetable
+	(select * from notice
 	
 <include refid="search"></include>
 	
@@ -29,7 +29,7 @@ where R between #{startRow} and #{lastRow}
 
 <select id="getDetail" parameterType="BoardDTO" resultMap="getDetailResult" >
 select N.*, NF.*
- from NOTICETABLE N
+ from notice N
  LEFT JOIN
  NOTICEFILE NF
  ON N.NUM = NF.NUM
@@ -46,19 +46,19 @@ select N.*, NF.*
 		<selectKey order="BEFORE" keyProperty="num" resultType="Long">
 			SELECT BOARD_SEQ.NEXTVAL FROM DUAL
 		</selectKey>
-insert into NOTICETABLE(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT) values (#{num},#{title},#{contents},#{writer},sysdate,0)
+insert into notice(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT) values (#{num},#{title},#{contents},#{writer},sysdate,0)
 </insert>
 
 <update id="setUpdate" parameterType="NoticeDTO" >
-UPDATE NOTICETABLE SET TITLE=#{title}, CONTENTS=#{contents} where WRITER=#{writer}
+UPDATE notice SET TITLE=#{title}, CONTENTS=#{contents} where WRITER=#{writer}
 </update>
 
 <delete id="setDelete" parameterType="NoticeDTO">
-DELETE NOTICETABLE WHERE NUM=#{num}
+DELETE notice WHERE NUM=#{num}
 </delete>
 
 <select id="getCount" resultType="Long" parameterType="Pager" >
-select count(num) from noticetable
+select count(num) from notice
 
 <include refid="search"></include>
 	
