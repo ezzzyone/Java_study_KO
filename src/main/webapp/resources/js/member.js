@@ -85,6 +85,15 @@ function check(){
 
 function checkjoin(){
 
+
+    let unameCheck=false;
+    let pwCheck=false;
+    let pw2Check=false;
+    let nameCheck=false;
+    let emailCheck=false;
+    let phoneCheck=false;
+
+    
     const btn = document.getElementById("btn");
     const uname = document.getElementById("inputUserName");
     const pw = document.getElementById("inputPassword");
@@ -101,36 +110,6 @@ function checkjoin(){
     const d6 = document.getElementById("d6");
 
     const frm = document.getElementById("frm");
-
-
-
-
-    btn.addEventListener("click", function(){
-
-        // let u = uname.value;
-        // let p = pw.value;
-        // let p2 = pw2.value;
-        // let n = name.value;
-        // let e = email.value;
-        // let ph = phone.value;
-
-        let unameCheck=false;
-        let pwCheck=false;
-        let pw2Check=false;
-        let nameCheck=false;
-        let emailCheck=false;
-        let phoneCheck=false;
-
-        if(unameCheck==true && pwCheck==true && pw2Check==true && nameCheck==true && emailCheck==true && phoneCheck==true ){
-        frm.submit();
-        }
-
-
-
-        // if(u.length>3 && p.length>7 && p2.length>7 && n.length>2  && e.length>2  && ph.length>2){
-        //     frm.submit();
-        // }
-    });
 
     uname.addEventListener("blur", function(){
 
@@ -213,6 +192,44 @@ function checkjoin(){
     
     });
 
+
+    btn.addEventListener("click", function(){
+
+        // let u = uname.value;
+        // let p = pw.value;
+        // let p2 = pw2.value;
+        // let n = name.value;
+        // let e = email.value;
+        // let ph = phone.value;
+
+
+
+        if(unameCheck==true && pwCheck==true && pw2Check==true && nameCheck==true && emailCheck==true && phoneCheck==true ){
+        frm.submit();
+        }else {console.log(unameCheck);
+            console.log(pwCheck);
+            console.log(pw2Check);
+            console.log(nameCheck);
+            console.log(emailCheck);
+            console.log(phoneCheck);
+        
+        
+        
+        
+        
+        
+        
+        
+        }
+
+
+
+
+
+        // if(u.length>3 && p.length>7 && p2.length>7 && n.length>2  && e.length>2  && ph.length>2){
+        //     frm.submit();
+        // }
+    });
 
 
     
