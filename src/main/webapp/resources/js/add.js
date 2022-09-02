@@ -98,8 +98,11 @@ btn.addEventListener("click", function(event){
 
 addfiles.addEventListener("click", function(event){
 
-    if(event.target.classList[0]=='del'){
-        alert(event.target.innerHTML);
+    let button = event.target;
+
+    if(button.classList[0]=='del'){
+        document.getElementById("file"+button.title).remove();
+        count--;
     }
 
        // let v = event.target.title;
