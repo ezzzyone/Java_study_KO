@@ -47,7 +47,10 @@ public class BankMembersController {
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO) throws Exception {
+	public ModelAndView login(HttpServletRequest request, BankMembersDTO bankMembersDTO) throws Exception {
+		
+		ModelAndView mv = new ModelAndView();
+		
 		System.out.println("DB로그인 접속 (POST)");
 		// DB에서 아이디와 패스워드가 일치하는 DTO데이터 가져옴
 		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
@@ -56,7 +59,23 @@ public class BankMembersController {
 		HttpSession session = request.getSession();
 		// DB에서 가져온 DTO데이터를 JSP로 속성만들어서 보내기
 		session.setAttribute("member", bankMembersDTO);
-		return "redirect:../";
+		
+		int result =0;
+		String message ="메롱~ 로그인 실패";
+		String url="./login";
+		if (bankMembersDTO!=null) {
+			message = "오 ~ 로그인 성공";
+			result =1;
+			url="../";
+		}
+		
+		mv.addObject("result",result);
+		mv.addObject("message", message);
+		mv.addObject("url", url);
+		mv.setViewName("common/result");
+		
+		
+		return mv;
 	}
 
 	// 로그아웃

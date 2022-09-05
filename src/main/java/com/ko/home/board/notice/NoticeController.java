@@ -75,10 +75,20 @@ public class NoticeController {
       ModelAndView mv = new ModelAndView();
 
 		 int result = noticeService.setAdd(boardDTO, files, session.getServletContext());
-		 
-      mv.setViewName("redirect:./list");
       
-      return mv;
+		String message ="메롱~ 실패";
+		if (result>0) {
+			message = "오 ~성공";
+		}
+		
+		mv.addObject("result",result);
+		mv.addObject("message", message);
+		mv.addObject("url", "list");
+		mv.setViewName("common/result");
+		
+		
+		return mv;
+
       
    }
    
