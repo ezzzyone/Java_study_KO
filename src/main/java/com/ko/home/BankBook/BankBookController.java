@@ -105,4 +105,24 @@ public class BankBookController {
 		
 		return mv;
 	}
+	
+	@RequestMapping(value="commentAdd", method = RequestMethod.GET)
+	public void commentAdd() throws Exception{
+		
+	}
+	
+	@RequestMapping(value="commentAdd", method = RequestMethod.POST)
+	public void commentAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		int result = bankBookService.setCommentAdd(bankBookCommentDTO);
+		if(result>0) {
+			System.out.println("뱅크북 커멘드 성공!");
+		}else {
+			System.out.println("뱅크북 커멘드 실패!");
+		}
+		
+		mv.setViewName("redirect:./list");
+		
+	}
 }

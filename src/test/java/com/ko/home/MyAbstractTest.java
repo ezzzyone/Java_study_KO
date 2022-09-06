@@ -15,19 +15,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //abstract : 상속받아서 사용해야 사용가능
 public abstract class MyAbstractTest {
 	
-	@Autowired
-	private SqlSession sqlSession;
-
-	@Test
-	public void test() {
-		
-		/*
-		 * assertNotNull(sqlSession);
-		 * 
-		 * fail("Not yet implemented");
-		 */
-	}
-
-	
+//	@Autowired
+//	private SqlSession sqlSession;
+//
+//	@Test
+//	public void test() {
+//		
+//		/*
+//		 * assertNotNull(sqlSession);
+//		 * 
+//		 * fail("Not yet implemented");
+//		 */
+//	}
+//
+//	
 
 }
