@@ -14,6 +14,7 @@ commentAdd.addEventListener("click", function(){
     //console.log("")
 
     //ajax
+    //jsp전체를 호출하지 않고 부분을 가져올수있음
     //1.XMLHTTPRequst 생성
     const xhttp = new XMLHttpRequest();
 
