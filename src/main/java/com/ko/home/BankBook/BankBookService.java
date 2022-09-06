@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.ko.home.util.CommentPager;
 @Service
 public class BankBookService {
 	
@@ -17,7 +19,13 @@ public class BankBookService {
 	//----------comment영역
 	
 	public int setCommentAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+		
 		return bankBookCommentDAO.setCommentAdd(bankBookCommentDTO);
+	}
+	
+	public List<BankBookCommentDTO> getCommentList(CommentPager commentPager) throws Exception{
+		commentPager.getRowNum();
+		return bankBookCommentDAO.getCommentList(commentPager);
 	}
 	
 	//---------bankbook영역

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ko.home.util.CommentPager;
+
 @Controller
 @RequestMapping(value = "/bankbook/*")
 public class BankBookController {
@@ -134,4 +136,39 @@ public class BankBookController {
 		return jsonResult;
 		
 	}
+	
+//	//1.jsp에 출력하고 결과물을 응답으로 전송
+//	@RequestMapping(value = "commentList", method=RequestMethod.GET)
+//	public ModelAndView commentList(CommentPager commentPager) throws Exception {
+//		ModelAndView mv = new ModelAndView();
+//		
+//		List<BankBookCommentDTO> ar = bankBookService.getCommentList(commentPager);
+//		System.out.println("CommentList");
+//		System.out.println(ar.size());
+//		
+//		mv.addObject("commentList", ar);
+//		mv.setViewName("common/commentList");
+//		
+//		return mv;
+//
+//	}
+	
+	
+	//2. json으로 body에 담아 바로 뿌리기 
+	//DTO == {}  배열
+	//num=1 == {"num":123, "bookNum":1234}, {"num":123, "bookNum":1234}
+	
+	@RequestMapping(value = "commentList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<BankBookCommentDTO> commentList(CommentPager commentPager) throws Exception {
+		
+		List<BankBookCommentDTO> ar = bankBookService.getCommentList(commentPager);
+		System.out.println("CommentList");
+		System.out.println(ar.size());
+		
+		
+		return ar;
+
+	}
+	
 }

@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="short icon" href="#">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -61,7 +62,10 @@
 
 		  	<!--comment list 영역시작-->
 
-			<div id="commentList"></div>
+			<div id="commentList">
+
+
+			</div>
 
 	</div>
 </body>
