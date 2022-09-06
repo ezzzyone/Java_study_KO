@@ -112,9 +112,11 @@ public class BankBookController {
 	}
 	
 	@RequestMapping(value="commentAdd", method = RequestMethod.POST)
-	public void commentAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+	public ModelAndView commentAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
+		
+		System.out.println("booknum="+bankBookCommentDTO.getBookNum());
 		int result = bankBookService.setCommentAdd(bankBookCommentDTO);
 		if(result>0) {
 			System.out.println("뱅크북 커멘드 성공!");
@@ -122,7 +124,9 @@ public class BankBookController {
 			System.out.println("뱅크북 커멘드 실패!");
 		}
 		
-		mv.setViewName("redirect:./list");
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
 		
 	}
 }

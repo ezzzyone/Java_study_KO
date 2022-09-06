@@ -16,5 +16,7 @@ public class FileManagerTest extends MyAbstractTest{
 		fileManager.saveFile("resources/upload/test");
 		System.out.println();
 	}
+	
+	
 
 }

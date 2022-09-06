@@ -44,5 +44,22 @@
 	</c:if>
 	
 	<a href="./list">통장리스트</a>
+
+	<!--comment 영역시작-->
+	<div class="row">
+		<div class="mb-3">
+			<label for="writer" class="form-label">Username</label>
+			<input type="text" class="form-control" id="writer" placeholder="enter your username">
+		  </div>
+		  <div class="mb-3">
+			<label for="contents" class="form-label">contents</label>
+			<textarea class="form-control" id="contents" row="3"></textarea>
+		  </div>
+		  <div class="mb-3">
+			<button type="button" id="commentAdd" data-book-num="${detail.bookNum}">button</button>
+		  </div>
+
+	</div>
 </body>
+<script src="/resources/js/bankbookComment.js"></script>
 </html>
