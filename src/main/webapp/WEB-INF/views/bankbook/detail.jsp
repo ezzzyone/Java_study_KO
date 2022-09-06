@@ -45,7 +45,7 @@
 	
 	<a href="./list">통장리스트</a>
 
-	<!--comment 영역시작-->
+	<!--comment insert 영역시작-->
 	<div class="row">
 		<div class="mb-3">
 			<label for="writer" class="form-label">Username</label>
@@ -58,6 +58,10 @@
 		  <div class="mb-3">
 			<button type="button" id="commentAdd" data-book-num="${detail.bookNum}">button</button>
 		  </div>
+
+		  	<!--comment list 영역시작-->
+
+			<div id="commentList"></div>
 
 	</div>
 </body>

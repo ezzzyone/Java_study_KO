@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -112,7 +113,10 @@ public class BankBookController {
 	}
 	
 	@RequestMapping(value="commentAdd", method = RequestMethod.POST)
-	public ModelAndView commentAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+	@ResponseBody
+	//jsp를 안거치고 body에 바로 담아 응답으로 내보내겠다.
+	
+	public String commentAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -124,9 +128,10 @@ public class BankBookController {
 			System.out.println("뱅크북 커멘드 실패!");
 		}
 		
-		mv.addObject("result", result);
-		mv.setViewName("common/ajaxResult");
-		return mv;
+		String jsonResult = "{\"result\":\""+result+"\"}";
+		//mv.addObject("result", result);
+		//mv.setViewName("common/ajaxResult");
+		return jsonResult;
 		
 	}
 }
