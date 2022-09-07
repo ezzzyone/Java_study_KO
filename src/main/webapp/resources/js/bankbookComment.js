@@ -68,9 +68,23 @@ commentAdd.addEventListener("click", function(){
 
 }) //click 이벤트 끝
 
-//------------------------delete
+
 
 commentList.addEventListener("click", function(event){
+
+    //-----------------update-------------------
+
+    document.querySelector("#up").click();
+
+
+
+
+
+
+
+
+
+    //---------------------------------------------delete
 
     let num = event.target.getAttribute("data-comment-num");
 
@@ -112,10 +126,11 @@ commentList.addEventListener("click", function(event){
                 page=1;
                
                 for(let i=0;i<commentList.children.length;){
-                commentList.children[0].remove();}
+                commentList.children[0].remove();
             
-                
-                getCommentList(page, bookNum);
+            }
+            
+               getCommentList(page, bookNum);
              }
             }else(alert("삭제 실패"));
         }

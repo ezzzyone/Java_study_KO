@@ -28,6 +28,11 @@ public class BankBookService {
 		return bankBookCommentDAO.setCommentDelete(bankBookCommentDTO);
 	}
 	
+	public int setCommentUpdate (BankBookCommentDTO bankBookCommentDTO) throws Exception{
+		
+		return bankBookCommentDAO.setCommentUpdate(bankBookCommentDTO);
+	}
+	
 	public List<BankBookCommentDTO> getCommentList(CommentPager commentPager) throws Exception{
 		commentPager.getRowNum();
 		Long totalCount = bankBookCommentDAO.getCommentListTotalCount(commentPager);

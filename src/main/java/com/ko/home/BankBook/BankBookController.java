@@ -152,6 +152,13 @@ public class BankBookController {
 		
 	}
 	
+	public int commentUpdate(BankBookCommentDTO bankBookCommentDTO)throws Exception{
+		
+		int result = bankBookService.setCommentUpdate(bankBookCommentDTO);
+		
+		return result;
+	}
+	
 //	//1.jsp에 출력하고 결과물을 응답으로 전송
 //	@RequestMapping(value = "commentList", method=RequestMethod.GET)
 //	public ModelAndView commentList(CommentPager commentPager) throws Exception {

@@ -5,6 +5,10 @@
 		    
 <mapper namespace="com.ko.home.BankBook.BankBookCommentDAO">
 
+<update id="setCommentUpdate" parameterType="BankBookCommentDTO">
+update BB_Comment set contents=#{contents} where num=#{num}
+</update>
+
 <delete id="setCommentDelete" parameterType="BankBookCommentDTO">
 DELETE BB_COMMENT WHERE NUM=#{num}
 </delete>
