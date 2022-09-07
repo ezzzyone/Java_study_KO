@@ -72,7 +72,7 @@
 
 			</div>
 
-			<button id="more" class="btn btn-danger">더보기</button>
+			<button id="more" class="btn btn-danger disabled" >더보기</button>
 
 
 

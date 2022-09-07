@@ -1,6 +1,8 @@
 package com.ko.home.BankBook;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -137,6 +139,19 @@ public class BankBookController {
 		
 	}
 	
+	@RequestMapping(value="commentDelete", method = RequestMethod.POST)
+	@ResponseBody
+	//jsp를 안거치고 body에 바로 담아 응답으로 내보내겠다.
+	
+	public int commentDelete(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+		
+		int result = bankBookService.setCommentDelete(bankBookCommentDTO);
+		
+		return result;
+
+		
+	}
+	
 //	//1.jsp에 출력하고 결과물을 응답으로 전송
 //	@RequestMapping(value = "commentList", method=RequestMethod.GET)
 //	public ModelAndView commentList(CommentPager commentPager) throws Exception {
@@ -160,14 +175,18 @@ public class BankBookController {
 	
 	@RequestMapping(value = "commentList", method=RequestMethod.GET)
 	@ResponseBody
-	public List<BankBookCommentDTO> commentList(CommentPager commentPager) throws Exception {
+	public Map<String, Object> commentList(CommentPager commentPager) throws Exception {
 		
 		List<BankBookCommentDTO> ar = bankBookService.getCommentList(commentPager);
 		System.out.println("CommentList");
 		System.out.println(ar.size());
 		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", ar);
+		map.put("pager", commentPager); //2개를 리턴해야해서 map에 담음
 		
-		return ar;
+		
+		return map;
 
 	}
 	

@@ -9,6 +9,26 @@ public class CommentPager {
 	private Long page;
 	private Long perPage;
 	
+	private Long totalPage;
+	
+	//전체페이지 계산
+	public void makePage(Long totalCount) {
+		this.totalPage = totalCount/this.getPerPage();
+		if(totalCount%this.getPerPage() != 0) {
+			this.totalPage++;
+		}
+		
+	}
+	
+	public Long getTotalPage() {
+		return totalPage;
+	}
+
+
+	public void setTotalPage(Long totalPage) {
+		this.totalPage = totalPage;
+	}
+
 	
 	public Long getPage() {
 		if(this.page==null || this.page<1) {
