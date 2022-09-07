@@ -62,10 +62,19 @@
 
 		  	<!--comment list 영역시작-->
 
-			<div id="commentList">
+			<div>
 
+				<table id="commentList">
+
+				</table>
+
+				
 
 			</div>
+
+			<button id="more" class="btn btn-danger">더보기</button>
+
+
 
 	</div>
 </body>
