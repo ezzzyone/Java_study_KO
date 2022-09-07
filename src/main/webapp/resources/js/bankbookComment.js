@@ -41,6 +41,12 @@ commentAdd.addEventListener("click", function(){
 
             if(result.result == 1){
                 alert("댓글 성공 야호!");
+               
+             if(commentList.children.length != 0){
+                for(let i=0;i<commentList.children.length;)
+                commentList.children[0].remove();
+                getCommentList();
+             }
             }else(alert("뭔가 이상하데요?"));
         }
     }
@@ -74,10 +80,10 @@ function getCommentList(){
 
             //2.json 결과물
              let ar = JSON.parse(xhttp.responseText.trim());
-             let result = document.createElement("table");
-             let resultAttr = document.createAttribute("class");
-             resultAttr.value="table table-dark table-striped";
-             result.setAttributeNode(resultAttr);
+            //  let result = document.createElement("table");
+            //  let resultAttr = document.createAttribute("class");
+            //  resultAttr.value="table table-dark table-striped";
+            //  result.setAttributeNode(resultAttr);
              for(let i=0; i<ar.length;i++){
                 let tr= document.createElement("tr");
                 let td =document.createElement("td");
@@ -99,12 +105,40 @@ function getCommentList(){
 
                 tr.appendChild(td);
 
-                result.appendChild(tr);
+                commentList.append(tr);
              }
-             commentList.append(result);
+             
+           
 
+            //  let t= commentList.children;
+            //  if(t.length != 0){
+            //     commentList.children[0].remove();
+            //  }
+
+             //commentList.append(result);
+             
+            //  commentList.append(result);
+            //  commentList.children[0].remove();
+            //  try{
+            //     console.log(commentList.children);
+            //     throw new Error("에러메세지");
+            //  }catch(exeception){
+
+            //  }finally{
+
+
+            //  }
         }
     });
 
 
 }
+
+//------------------------냐옹 더보기! ----------------
+
+const more = document.querySelector("#more");
+
+more.addEventListener("click", function(){
+    console.log("클릭해보자")
+})
+
