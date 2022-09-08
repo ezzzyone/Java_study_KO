@@ -21,6 +21,42 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- intercetor 설정 어떤 url이 왔을 때 어떤 interceptor?-->
+	
+	<!-- interceptor 객체 생성 -->
+	<beans:bean class="com.ko.home.interceptor.TestInterceptor" id="testInterceptor"></beans:bean>
+	<beans:bean class="com.ko.home.interceptor.WriterCheckInterceptor" id="writerCheckInterceptor"></beans:bean>
+	
+	<!-- URL  interceptor 맵핑 -->
+	<interceptors>
+	<interceptor>
+	<!-- url경로 -->
+	<mapping path="/**"/>
+	<beans:ref bean="testInterceptor"/> <!-- 참조 -->
+	
+	</interceptor>
+	
+		<interceptor>
+	<!-- url경로 -->
+	<mapping path="/qna/update"/>
+	<beans:ref bean="writerCheckInterceptor"/> <!-- 참조 -->
+	</interceptor>
+	
+		<interceptor>
+	<!-- url경로 -->
+	<mapping path="/notice/update"/>
+	<beans:ref bean="writerCheckInterceptor"/> <!-- 참조 -->
+	</interceptor>
+	
+	
+	<!-- <interceptor>
+	<mapping path="/qna/*"/>
+	<mapping path="/member/myPage"/>
+	<exclude-mapping path="/qna/list"/>
+	<beans:bean class="com.ko.home.interceptor.MemberInterceptor" id="memberInterceptor"></beans:bean>
+	</interceptor> -->
+	</interceptors>
+	
 	<context:component-scan base-package="com.ko.home" />
 	
 </beans:beans>
