@@ -122,8 +122,6 @@ public class BankBookController {
 	
 	public String commentAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
 		
-		ModelAndView mv = new ModelAndView();
-		
 		System.out.println("booknum="+bankBookCommentDTO.getBookNum());
 		int result = bankBookService.setCommentAdd(bankBookCommentDTO);
 		if(result>0) {
@@ -152,7 +150,12 @@ public class BankBookController {
 		
 	}
 	
+	@RequestMapping(value="commentUpdate", method = RequestMethod.POST)
+	@ResponseBody
 	public int commentUpdate(BankBookCommentDTO bankBookCommentDTO)throws Exception{
+		
+		System.out.println(bankBookCommentDTO.getNum());
+		System.out.println("Contents="+bankBookCommentDTO.getContents());
 		
 		int result = bankBookService.setCommentUpdate(bankBookCommentDTO);
 		
