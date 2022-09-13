@@ -9,6 +9,24 @@
 		<param-value>/WEB-INF/spring/*-context.xml</param-value>
 	</context-param>
 	
+	<!-- 에러 처리 페이지 넘기기 방법 2가지 : jsp경로 직접입력/ 요청경로 따로 보냄. error 컨트롤러로 연결 -->
+	
+	<error-page>
+	<error-code>404</error-code>
+	<error-code>405</error-code>
+	<location>/WEB-INF/views/errors/error_404.jsp</location>
+	</error-page>
+	
+	<error-page>
+	<error-code>400</error-code>
+	<location>/error/error404</location>
+	</error-page>
+	
+	<error-page>
+	<error-code>500</error-code>
+	<location>/error/error500</location> <!-- 에러 500 uri을 발생시킴 -->
+	</error-page>
+	
 		<filter>
 			<filter-name>encode</filter-name>
 			<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
