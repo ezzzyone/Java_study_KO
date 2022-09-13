@@ -18,20 +18,21 @@ public class WriterCheckInterceptor extends HandlerInterceptorAdapter{
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		
-//		String method = request.getMethod();
-//		
-//		if(method.equals("POST")) {
-//			return;
-//			
-//		}//이후는 get일때 실행
+		String method = request.getMethod();
+		
+		if(method.equals("POST")) {
+			return;
+			
+		}//이후는 get일때 실행
 		
 		
 		//로그인 사용자의 ID와 DTO의 작성자가 일치하는가?
-		
+		// 로그인 사용자 정보
+		BankMembersDTO bankMembersDTO = (BankMembersDTO)request.getSession().getAttribute("member");
 		
 		//로그인 사용자 정보 . member dto로 집어넣었으니 그 타입으로 꺼내야함
-		HttpSession session = request.getSession();
-		BankMembersDTO bankMembersDTO = (BankMembersDTO)session.getAttribute("member");
+		//HttpSession session = request.getSession();
+		//BankMembersDTO bankMembersDTO = (BankMembersDTO)session.getAttribute("member");
 		
 		//DTO
 		Map<String, Object> map = modelAndView.getModel();
@@ -41,12 +42,12 @@ public class WriterCheckInterceptor extends HandlerInterceptorAdapter{
 		if(!bankMembersDTO.getUserName().equals(boardDTO.getWriter())) {
 			modelAndView.setViewName("common/result");
 			modelAndView.addObject("message","작성자만 수정가능함");
-			//modelAndView.addObject("result",1);
+			modelAndView.addObject("result",1);
 			modelAndView.addObject("url","./list");
 			
 		}
 		
-		super.postHandle(request, response, handler, modelAndView);
+		System.out.println("Writer Interceptor");
 	}
 	
 	

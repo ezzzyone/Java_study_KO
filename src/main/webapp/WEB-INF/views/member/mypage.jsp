@@ -22,7 +22,7 @@
 	<p>통장이름: ${pageScope.dto.bankBookDTO.bookName}</p>
 	<p>개설일자: ${pageScope.dto.accountDate}</p>
 	</c:forEach>
-</section>
+
 
 <%-- 	<p>ID : ${requestScope.dto.userName}</p>
 	<p>NAME : ${requestScope.dto.name}</p>
@@ -52,6 +52,16 @@
 	<div class="row">
 	<img src="../resources/upload/member/${dto.bankMemberFileDTO.fileName}">
 	</div>
+	
+	<div>
+			<c:forEach items="${member.roleDTOs}" var="roleDTO">
+			<div>${roleDTO.roleNum}, ${roleDTO.roleName}</div>
+			</c:forEach>
+			
+			<h1> 당신은 ${member.roleDTOs.get(0).roleName}등급입니다.</h1>
+			<h1> 당신은 ${member.roleDTOs["0"].roleName}등급입니다.</h1>
+	</div>
+	</section>
 		 
 </body>
 <c:import url="../template/footer.jsp"></c:import>

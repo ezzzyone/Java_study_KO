@@ -10,9 +10,27 @@
 	values(FILE_SEQ.NEXTVAL, #{oriName}, #{userName}, #{fileName})
 	</insert>
 
-	<select id="getLogin" parameterType="BankMembersDTO" resultType="BankMembersDTO">
-		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{passWord}
+	<select id="getLogin" parameterType="com.ko.home.bankmembers.BankMembersDTO" resultMap="getLoginResult">
+		SELECT M.USERNAME, M.NAME, MR.ROLENUM, R.ROLENAME
+		FROM BANKMEMBERS M
+    		INNER JOIN
+    		MEMBERROLE MR
+    		ON M.USERNAME = MR.USERNAME
+    		INNER JOIN
+    		ROLE R
+    		ON MR.ROLENUM = R.ROLENUM
+		WHERE M.USERNAME = #{userName} and M.PASSWORD = #{passWord}
+		ORDER BY R.ROLENUM ASC
 	</select>
+	
+	<resultMap type="BankMembersDTO" id="getLoginResult">
+		<id column="USERNAME" property="userName" />
+		<result column="NAME" property="name" />
+		<collection property="roleDTOs" javaType="List" ofType="RoleDTO">
+			<id column="ROLENUM" property="roleNum" />
+			<result column="ROLENAME" property="roleName" />
+		</collection>
+	</resultMap>
 	
 	<insert id="setJoin" parameterType="BankMembersDTO">
 		INSERT INTO BANKMEMBERS VALUES (#{userName}, #{passWord}, #{name}, #{email}, #{phone})

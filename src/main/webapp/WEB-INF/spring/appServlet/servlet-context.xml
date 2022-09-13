@@ -24,37 +24,31 @@
 	<!-- intercetor 설정 어떤 url이 왔을 때 어떤 interceptor?-->
 	
 	<!-- interceptor 객체 생성 -->
-	<beans:bean class="com.ko.home.interceptor.TestInterceptor" id="testInterceptor"></beans:bean>
-	<beans:bean class="com.ko.home.interceptor.WriterCheckInterceptor" id="writerCheckInterceptor"></beans:bean>
 	
+	<beans:bean class="com.ko.home.interceptor.AdminCheckInterceptor" id="adminCheckInterceptor"></beans:bean>
+	<beans:bean class="com.ko.home.interceptor.MemberInterceptor" id="memberInterceptor"></beans:bean>
 	<!-- URL  interceptor 맵핑 -->
 	<interceptors>
 	<interceptor>
-	<!-- url경로 -->
-	<mapping path="/**"/>
-	<beans:ref bean="testInterceptor"/> <!-- 참조 -->
 	
-	</interceptor>
-	
-		<interceptor>
-	<!-- url경로 -->
-	<mapping path="/qna/update"/>
-	<beans:ref bean="writerCheckInterceptor"/> <!-- 참조 -->
-	</interceptor>
-	
-		<interceptor>
-	<!-- url경로 -->
-	<mapping path="/notice/update"/>
-	<beans:ref bean="writerCheckInterceptor"/> <!-- 참조 -->
-	</interceptor>
-	
-	
-	<!-- <interceptor>
-	<mapping path="/qna/*"/>
-	<mapping path="/member/myPage"/>
+	<mapping path="/notice/**"/>
+	<mapping path="/qna/**"/>
+	<exclude-mapping path="/notice/list"/>
+	<exclude-mapping path="/notice/detail"/>
 	<exclude-mapping path="/qna/list"/>
-	<beans:bean class="com.ko.home.interceptor.MemberInterceptor" id="memberInterceptor"></beans:bean>
-	</interceptor> -->
+	<beans:ref bean="memberInterceptor"/>
+	
+	 </interceptor>
+	 
+	<interceptor>
+	
+	<mapping path="/notice/**"/>
+	<exclude-mapping path="/notice/list"/>
+	<exclude-mapping path="/notice/detail"/>
+	<beans:ref bean="adminCheckInterceptor"/>
+	
+	 </interceptor>
+
 	</interceptors>
 	
 	<context:component-scan base-package="com.ko.home" />
