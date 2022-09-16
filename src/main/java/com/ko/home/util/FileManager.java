@@ -9,8 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ko.home.file.FileDTO;
+
 @Component
 public class FileManager {
+	
+	//delete
+	public void deleteFile(ServletContext servletContext, String path,FileDTO fileDTO)throws Exception{
+		
+		String realPath = servletContext.getRealPath(path);
+		File file = new File(realPath, fileDTO.getFileName());
+		
+		
+		
+	};
 	
 	//servletContext 선언방법들. 1.멤버변수 선언/주입 2.매개변수로 받아오기
 	
@@ -21,6 +33,8 @@ public class FileManager {
 		//realpath에서 꺼내쓰기 위해 path 매개변수로 받아옴
 		
 		String realPath = servletContext.getRealPath(path);
+		
+		System.out.println("경로:"+realPath);
 		
 	//폴더(directory) 경로 체크
 		File file = new File(realPath);

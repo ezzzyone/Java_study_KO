@@ -1,11 +1,72 @@
-const addfiles = document.getElementById("addfiles");
-const btn = document.getElementById("btn");
+//board_files.js
+
+const fileAdd = document.getElementById("fileAdd");//add button
+const addFiles = document.getElementById("addFiles"); // div#addFiles
+const fileDelete = document.querySelectorAll(".fileDelete");//forEach 가능
+//const fileDelete = document.getElementsByClassName("fileDelete");//forEach 불가능
+
+//------------------ Update시 file Delete ----------------------------
+try{
+    fileDelete.forEach(function(f){
+        f.addEventListener("click", function(){
+
+            let check = window.confirm("진짜 삭제할거야8??");
+
+            if(!check){
+                return;
+            }
+
+            let fileNum = f.getAttribute("data-file-num");
+
+            //ajax
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.open("POST", "fileDelete");
+
+            //요청 header 정보
+             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+             xhttp.send("fileNum="+fileNum);
+
+
+             xhttp.onreadystatechange=function(){
+                if(xhttp.readyState==4&&xhttp.status==200){
+                    let result = xhttp.responseText.trim();
+                    if(result==1){
+                        console.log(result);
+                        f.parentNode.remove();
+                    }else{
+                        console.log(result);
+                    }
+                }
+            }
+
+            
+
+        });
+    });
+}catch(e){
+
+}
+
+// for(fi of fileDelete){
+//     console.log(fi);
+// }
+
+//--------------------- Add시 file add -------------------------------
 
 
 let count = 0;
 let idx=0;
 
-btn.addEventListener("click", function(event){
+function setCount(c){
+    if(c>=0)
+    count=c;
+}
+
+try{
+
+    fileAdd.addEventListener("click", function(){
     
     count++;
     idx++;
@@ -107,6 +168,10 @@ addfiles.addEventListener("click", function(event){
 
        // let v = event.target.title;
     })
+}catch(e){
+
+}
+
 
         
         

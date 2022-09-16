@@ -11,6 +11,7 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ko.home.bankmembers.BankMemberFileDTO;
@@ -27,7 +28,7 @@ public class NoticeService implements BoardService{
 	
 	@Autowired
 	private FileManager fileManager;
-
+	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		
@@ -153,6 +154,7 @@ public class NoticeService implements BoardService{
 			noticeDAO.setAddFile(boardFileDTO);
 		}
 		
+		System.out.println();
 		
 		
 		return result;//
@@ -190,9 +192,29 @@ public class NoticeService implements BoardService{
 			 */
 
 	@Override
-	public int setUpdate(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return noticeDAO.setUpdate(boardDTO);
+	public int setUpdate(BoardDTO boardDTO, MultipartFile [] files, ServletContext servletContext) throws Exception {
+		String path="resources/upload/notice";
+		
+		int result = noticeDAO.setUpdate(boardDTO);
+		
+		if(result<1) {
+			
+			return result;
+		}
+		
+		//files 테이블에 insert하는 과정
+		for(MultipartFile multipartFile: files) {
+			if(multipartFile.isEmpty()) {
+				continue;
+			}
+			String fileName = fileManager.saveFile(servletContext, path, multipartFile);
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriName(multipartFile.getOriginalFilename());
+			boardFileDTO.setNum(boardDTO.getNum());
+			noticeDAO.setAddFile(boardFileDTO);
+		}
+		return result;
 	}
 
 	@Override
@@ -200,6 +222,24 @@ public class NoticeService implements BoardService{
 		// TODO Auto-generated method stub
 		return noticeDAO.setDelete(boardDTO);
 	}
+
+	public int setFileDelete(BoardFileDTO boardFileDTO, ServletContext servletContext) throws Exception{
+		// TODO Auto-generated method stub
+		
+		boardFileDTO = noticeDAO.getFileDetail(boardFileDTO);
+		
+		int result =  noticeDAO.setFileDelete(boardFileDTO);
+		String path="resources/upload/notice";
+		if(result>0) {
+			
+			fileManager.deleteFile(servletContext, path, boardFileDTO);
+			
+		}
+		
+		return result;
+	}
+	
+	
 	
  
 }

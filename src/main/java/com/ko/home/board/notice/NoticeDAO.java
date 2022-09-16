@@ -14,12 +14,25 @@ import com.ko.home.util.Pager;
 @Repository
 public class NoticeDAO implements BoardDAO{
 	
-	
-	
+
+
 
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.ko.home.board.notice.NoticeDAO.";
+	
+	
+	@Override
+	public BoardFileDTO getFileDetail(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NAMESPACE+"getFileDetail", boardFileDTO);
+	}
+	
+	@Override
+	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(NAMESPACE+"setFileDelete", boardFileDTO);
+	}
 	
 	
 	@Override

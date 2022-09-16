@@ -28,5 +28,7 @@ public class BoardDTO extends CommentDTO{
 	public void setBoardFileDTO(List<BoardFileDTO> boardFileDTO) {
 		this.boardFileDTO = boardFileDTO;
 	}
+
+
 }
 	

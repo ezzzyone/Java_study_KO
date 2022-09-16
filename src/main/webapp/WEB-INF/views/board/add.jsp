@@ -57,7 +57,7 @@
 
   <div id="addfiles">
 
-    <button type="button" id="btn">파일추가</button>
+    <button type="button" id="fileAdd">파일추가</button>
 
   </div>
 
